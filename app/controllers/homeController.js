@@ -61,5 +61,8 @@ app.controller('homeController',[ '$scope', 'newBoardService', function ($scope,
 
 		closeModal();
 	};
+	$scope.cancelBoardModal = function () {
+		closeModal();
+	}
 	
 }]);

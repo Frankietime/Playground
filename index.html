@@ -44,41 +44,49 @@
 				<div board-creation-modal ng-show="showModal"></div>
 			</script>
 			<script type='text/ng-template' id='board-creation-modal'>
-				<div>
-					<form>
-						<div class="row">
-							<div class="col-lg-6 col-md-6 col-sm-6">
-								Board
-							</div>
-							<div class="col-lg-6 col-md-6 col-sm-6">
-								Team
-								<div class="col-lg-6 col-md-6 col-sm-6">
-									<div ng-click="createNewTeam = true">Create Team</div>
-									<div ng-click="createNewTeam = false">Select Team</div>
+				<div class="modal-dialog-centered" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title">New Board</h5>
+						</div>
+						<form>
+							<div class="modal-body">
+								<div class="row">
+									<div class="col-lg-6 col-md-6 col-sm-6">
+										Board
+									</div>
+									<div class="col-lg-6 col-md-6 col-sm-6">
+										Team
+										<div class="col-lg-6 col-md-6 col-sm-6">
+											<div ng-click="createNewTeam = true">Create Team</div>
+											<div ng-click="createNewTeam = false">Select Team</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6 col-md-6 col-sm-6">
+										<div class="form-group">
+											<label>Board Name</label>
+											<input ng-model="board.name" id="board_name" class="form-control" type="text" ng-required></input>
+										</div>
+									</div>						
+								</div>
+								<div class="row">
+									<div class="col-lg-6 col-md-6 col-sm-6">
+										<div board-items items="columns" items-plural-label="{{columnsPluralLabel}}" items-singular-label="{{columnsSingularLabel}}"></div>
+									</div>
+									<div class="col-lg-6 col-md-6 col-sm-6">
+										<div new-team ng-show="createNewTeam"></div>
+										<div select-team ng-show="!createNewTeam"></div>
+									</div>	
+								</div>								
+								<div class="modal-footer">
+									<button type="button" ng-click="createBoard()">Create Board!</button>
+									<button type="button" ng-click="cancelBoardModal()">Cancel</button>
 								</div>
 							</div>
-						</div>
-						<div class="row">
-							<div class="col-lg-6 col-md-6 col-sm-6">
-								<div class="form-group">
-									<label>Board Name</label>
-									<input ng-model="board.name" id="board_name" class="form-control" type="text" ng-required></input>
-								</div>
-							</div>						
-						</div>
-						<div class="row">
-							<div class="col-lg-6 col-md-6 col-sm-6">
-								<div board-items items="columns" items-plural-label="{{columnsPluralLabel}}" items-singular-label="{{columnsSingularLabel}}"></div>
-							</div>
-							<div class="col-lg-6 col-md-6 col-sm-6">
-								<div new-team ng-show="createNewTeam"></div>
-								<div select-team ng-show="!createNewTeam"></div>
-							</div>	
-						</div>				
-						<div class="row">
-							<div>Create Board!</div><div ng-click="createBoard()">Cancel</div>
-						</div>
-					</form>
+						</form>
+					</div>
 				</div>
 			</script>
 			<script type="text/ng-template" id="board-items">
