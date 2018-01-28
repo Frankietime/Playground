@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>Playground - Beating Team Boards</title>
+		<script
+  			src="https://code.jquery.com/jquery-1.12.4.min.js"
+  			integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  			crossorigin="anonymous"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular-route.min.js"></script>
+		<link 
+			rel="stylesheet" 
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" 
+			integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" 
+			crossorigin="anonymous">
+		<script 
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" 
+			integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" 
+			crossorigin="anonymous"></script>
+		<script 
+			src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" 
+			integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" 
+			crossorigin="anonymous"></script>
+		
+		<script src="app/app.js"></script>
+		<script src="app/controllers/homeController.js"></script>
+		<script src="app/services/newBoardService.js"></script>
+		<script src="app/directives/board-creation-modal.js"></script>		
+		<script src="app/directives/board-items.js"></script>
+		<script src="app/directives/new-team.js"></script>
+		<script src="app/directives/select-team.js"></script>
+		
+	</head>
+	<body>
+		<div ng-app="playground">
+			<!-- Templates -->
+			<script type='text/ng-template' id='home'>
+				<div class="row">
+					<div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4" ng-click="openModal()">New Board!<span> + </span></div>						
+				</div>
+				<div board-creation-modal ng-show="showModal"></div>
+			</script>
+			<script type='text/ng-template' id='board-creation-modal'>
+				<div>
+					<form>
+						<div class="row">
+							<div class="col-lg-6 col-md-6 col-sm-6">
+								Board
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6">
+								Team
+								<div class="col-lg-6 col-md-6 col-sm-6">
+									<div ng-click="createNewTeam = true">Create Team</div>
+									<div ng-click="createNewTeam = false">Select Team</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-6 col-md-6 col-sm-6">
+								<div class="form-group">
+									<label>Board Name</label>
+									<input ng-model="board.name" id="board_name" class="form-control" type="text" ng-required></input>
+								</div>
+							</div>						
+						</div>
+						<div class="row">
+							<div class="col-lg-6 col-md-6 col-sm-6">
+								<div board-items items="columns" items-plural-label="{{columnsPluralLabel}}" items-singular-label="{{columnsSingularLabel}}"></div>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6">
+								<div new-team ng-show="createNewTeam"></div>
+								<div select-team ng-show="!createNewTeam"></div>
+							</div>	
+						</div>				
+						<div class="row">
+							<div>Create Board!</div><div ng-click="createBoard()">Cancel</div>
+						</div>
+					</form>
+				</div>
+			</script>
+			<script type="text/ng-template" id="board-items">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12" ng-repeat="item in items">
+						<div id="{{'item_' + item.id }}">
+							<div class="form-group">
+								<label>{{ itemsSingularLabel }}</label>							
+								<input placeholder="{{ itemsSingularLabel + '...'}}" ng-model="item.name" class="form-control" type="text" ng-required></input>
+								<div ng-click="deleteItem(item)">Delete</div>								
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-12 col-md-12 col-sm-12" ng-click="addNewItem()">{{items.length == 0? 'Add New ' + itemsSingularLabel : 'Add More ' + itemsPluralLabel}}</div>
+				</div>
+				<div class="row">
+					<div ng-click=addNewItem()></div>
+				</div>
+			</script>
+			<script type="text/ng-template" id="new-team">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12">
+						<div class="form-group">							
+							<input placeholder="Team's Name..."ng-model="team.name" class="form-control" type="text" ng-required></input>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12">
+						<p>Invite team member's by entering their e-mails</p>
+					</div>
+				</div>
+				<div class="col-lg-12 col-md-12 col-sm-12">
+					<div class="col-lg-12 col-md-12 col-sm-12">
+						<div board-items items="invitationEmails" items-plural-label="{{invitationsPluralLabel}}" items-singular-label="{{invitationsSingularLabel}}"></div>				
+					</div>
+				</div>
+			</script>
+			<script type="text/ng-template" id="select-team">
+				<div class="row">
+					Your Teams
+				</div>
+				<div ng-repeat="team in userTeams">
+					ACCORDION
+				</div>
+			</script>
+			<!-- View -->
+			<div class="container">
+				<div ng-view></div>
+			</div>
+		</div>
+	</body>
+</html>
