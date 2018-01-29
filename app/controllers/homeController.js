@@ -11,7 +11,7 @@ app.controller('homeController',[ '$scope', '$uibModal', '$document', function (
 			animation: true,
 			ariaLabelledBy: 'modal-title',
 			ariaDescribedBy: 'modal-body',
-			templateUrl: 'board-creation-modal',
+			templateUrl: '../templates/board-creation-modal.html',
 			size: 'lg',
 			controller: 'modalInstanceController',
 			controllerAs: '$scope',

@@ -30,134 +30,13 @@
 	</head>
 	<body>
 		<div ng-app="playground">
-			<!-- Templates -->
-			<script type='text/ng-template' id='board-creation-modal'>
-				<div class="modal-dialog-centered" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title">New Board</h5>
-							</div>
-							<form>								
-								<div class="modal-body">
-									<div class="container-fluid">
-										<div class="row" style="height:500px;">
-											<div class="col-lg-6 col-md-6 col-sm-6 ml-auto">
-												<h3>Board</h3>
-												<hr>
-												<div class="row">
-													<div class="form-group col-lg-12 col-md-12 col-sm-12">
-														<uib-tabset>
-															<uib-tab index="0" heading="Board Name">
-																<input ng-model="board.name" id="board_name" class="form-control" type="text" ng-required></input>
-															</uib-tab>
-														</uib-tabset>														
-													</div>
-												</div>
-												<div class="row">
-													<div class="col-lg-12 col-md-12 col-sm-12">
-														<div board-items items="columns" items-plural-label="{{columnsPluralLabel}}" items-singular-label="{{columnsSingularLabel}}"></div>
-													</div>
-												</div>
-											</div>
-											<div class="col-lg-6 col-md-6 col-sm-6 ml-auto">
-												<h3>Team</h3>
-												<hr>												
-												<uib-tabset active="true" class="nav-fill">
-													<uib-tab index="0" heading="Create Team" ng-click="createNewTeam()">
-														<div new-team ng-show="newTeam"></div>
-													</uib-tab>
-													<uib-tab index="1" heading="Select Team" ng-click="selectTeam()">
-														<div select-team ng-show="!newTeam" teams="userTeams"></div>
-													</uib-tab>
-												<uib-tabset>
-											</div>										
-										</div>																		
-										<div class="modal-footer">
-											<div class="row">
-												<div class="col-lg-6 col-md-6 col-sm-6">
-													<button type="button" ng-click="createBoard()">Next!</button>
-												</div>
-												<div class="col-lg-6 col-md-6 col-sm-6">
-													<button type="button" ng-click="cancelBoardModal()">Cancel</button>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>								
-							</form>
-						</div>
-				</div>
-			</script>
-			<script type="text/ng-template" id="board-items">
-				<div class="row">
-					<div class="col-lg-12 col-md-12 col-sm-12" ng-repeat="item in items">
-						<div id="{{'item_' + item.id }}">
-							<div class="form-group">
-								<label>{{ itemsSingularLabel }}</label>							
-								<input placeholder="{{ itemsSingularLabel + '...'}}" ng-model="item.name" class="form-control" type="text" ng-required></input>
-								<button class="button" ng-click="deleteItem(item)">Delete</button>								
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-12 col-md-12 col-sm-12">
-						<button class="button" ng-click="addNewItem()">
-							{{items.length == 0? 'Add New ' + itemsSingularLabel : 'Add More ' + itemsPluralLabel}}
-						</button>
-				</div>
-				<div class="row">
-					<div ng-click=addNewItem()></div>
-				</div>
-			</script>
-			<script type="text/ng-template" id="new-team">
-				<div class="row">
-					<div class="col-lg-12 col-md-12 col-sm-12">
-						<div class="form-group">
-							<input ng-model="team.name" placeholder="Team's Name..." class="form-control" type="text" ng-required></input>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-lg-12 col-md-12 col-sm-12">
-						<p>Invite team member's by entering their e-mails</p>
-					</div>
-				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12">
-					<div class="col-lg-12 col-md-12 col-sm-12">
-						<div board-items items="invitationEmails" items-plural-label="{{invitationsPluralLabel}}" items-singular-label="{{invitationsSingularLabel}}"></div>				
-					</div>
-				</div>
-			</script>
-			<script type="text/ng-template" id="select-team">
-				<div class="row">
-					<div class="col-lg-12 col-md-12 col-sm-12">
-						<h4>Your Teams</h4>
-					</div>
-				</div>
-				<div>
-					<uib-accordion close-others="true" id="new-board-modal-accordion">
-						<div uib-accordion-group class="panel-default modal-teams" is-open="" ng-repeat="team in teams" id="{{'team_' + team.id}}" ng-click="selectTeam(this.team, $event)">
-							<uib-accordion-heading>
-								<div class="panel-heading">
-									{{team.name}}
-									<!-- <input class="pull-right team-radio-button" ng-model="team.selected" type="radio" id="{{'team_' + team.id + '_radio'}}"></input>																	 -->
-								</div>
-							</uib-accordion-heading>
-							
-							<ul class="list-group list-group-flush">
-								<li class="list-group-item" ng-repeat="member in team.members">{{member.name}}</li>
-							</ul>
-						</div>
-					</uib-accordion>
-				</div>
-			</script>
 			<!-- View -->
 			<div class="container">
 				<div class="navbar">
 					<h1 id="title" style="margin:auto;text-align:center;margin-top:30px;width:100%">PLAYGROUND</h1>
 				</div>
 			</div>		
-				<div id="board" ng-view></div>
-							
+				<div id="board" ng-view></div>							
 		</div>
 	</body>
 </html>

@@ -1,6 +1,6 @@
 var app = angular.module('playground');
 
-app.controller('modalInstanceController',['$uibModalInstance', '$scope', function ($uibModalInstance, $scope){
+app.controller('modalInstanceController',['$uibModalInstance', '$scope', '$log', function ($uibModalInstance, $scope, $log){
     $scope.columnsPluralLabel = 'Columns';
 	$scope.columnsSingularLabel = 'Column';
 	$scope.invitationsPluralLabel = 'E-mails';

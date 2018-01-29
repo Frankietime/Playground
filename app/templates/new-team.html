@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="form-group">
+            <input ng-model="team.name" placeholder="Team's Name..." class="form-control" type="text" ng-required></input>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <p>Invite team member's by entering their e-mails</p>
+    </div>
+</div>
+<div class="col-lg-12 col-md-12 col-sm-12">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <div board-items items="invitationEmails" items-plural-label="{{invitationsPluralLabel}}" items-singular-label="{{invitationsSingularLabel}}"></div>				
+    </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="modal-dialog-centered" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">New Board</h5>
+        </div>
+        <form>								
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row" style="height:500px;">
+                        <div class="col-lg-6 col-md-6 col-sm-6 ml-auto">
+                            <h3>Board</h3>
+                            <hr>
+                            <div class="row">
+                                <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                    <uib-tabset>
+                                        <uib-tab index="0" heading="Board Name">
+                                            <input ng-model="board.name" id="board_name" class="form-control" type="text" ng-required></input>
+                                        </uib-tab>
+                                    </uib-tabset>														
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div board-items items="columns" items-plural-label="{{columnsPluralLabel}}" items-singular-label="{{columnsSingularLabel}}"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 ml-auto">
+                            <h3>Team</h3>
+                            <hr>												
+                            <uib-tabset active="active" class="nav-fill">
+                                <uib-tab index="0" heading="Create Team" ng-click="createNewTeam()">
+                                    <div new-team ng-show="newTeam"></div>
+                                </uib-tab>
+                                <uib-tab index="1" heading="Select Team" ng-click="selectTeam()">
+                                    <div select-team ng-show="!newTeam" teams="userTeams"></div>
+                                </uib-tab>
+                            <uib-tabset>
+                        </div>										
+                    </div>																		
+                    <div class="modal-footer">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <button type="button" ng-click="createBoard()">Create Board!</button>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <button type="button" ng-click="cancelBoardModal()">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>								
+        </form>
+    </div>
+</div>

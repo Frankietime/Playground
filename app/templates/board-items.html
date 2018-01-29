@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12" ng-repeat="item in items">
+        <div id="{{'item_' + item.id }}">
+            <div class="form-group">
+                <label>{{ itemsSingularLabel }}</label>							
+                <input placeholder="{{ itemsSingularLabel + '...'}}" ng-model="item.name" class="form-control" type="text" ng-required></input>
+                <button class="button" ng-click="deleteItem(item)">Delete</button>								
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <button class="button" ng-click="addNewItem()">
+            {{items.length == 0? 'Add New ' + itemsSingularLabel : 'Add More ' + itemsPluralLabel}}
+        </button>
+</div>
+<div class="row">
+    <div ng-click=addNewItem()></div>
+</div>

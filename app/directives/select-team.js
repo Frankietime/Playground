@@ -6,7 +6,7 @@ app.directive('selectTeam',['$document', '$filter', function ($document, $filter
         scope: {
             teams: '='
         },
-        templateUrl: 'select-team',
+        templateUrl: '../templates/select-team.html',
         link: function (scope, element, attrs) {
             scope.selectTeam = function (team, event) {
                 

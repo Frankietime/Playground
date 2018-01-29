@@ -8,7 +8,7 @@ app.directive('boardItems',[ function (){
 			itemsPluralLabel: '@',
 			itemsSingularLabel: '@'
 		},
-		templateUrl: 'board-items',
+		templateUrl: '../templates/board-items.html',
 		link: function (scope, element, attrs) {
 			var nextItemId = 0;
 			scope.addNewItem = function () {
