@@ -6,7 +6,6 @@ body {
     padding: 0;
     background-color: #11121b;
     color: #000000;
-    letter-spacing: 0.5em;
     font-family: Sans-Serif;
     
     
@@ -18,7 +17,7 @@ body {
     text-shadow: 10px 3px rgb(241, 47, 138);
     
 }
-#new-board {
+.new-board {
     display: block;
     position: fixed;
     top: 50vh;

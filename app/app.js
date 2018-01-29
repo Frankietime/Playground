@@ -1,4 +1,4 @@
-var app = angular.module('playground', ['ngRoute', 'ui.bootstrap']);
+var app = angular.module('playground', ['ngRoute', 'ui.bootstrap', 'ngAnimate', 'ngTouch']);
 
 app.config(function($routeProvider) {
 	var templatesPath = 'templates/';

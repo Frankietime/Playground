@@ -11,8 +11,8 @@
 		<link rel="stylesheet" href="css/playground.css">
 		<link href="https://fonts.googleapis.com/css?family=Erica+One|Sigmar+One" rel="stylesheet">
 		
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular-route.min.js"></script>
+		<script src="js/angular.min.js"></script>
+		<script src="js/angular-route.min.js"></script>
 		<script src="js/ui-bootstrap-tpls-2.5.0.min.js"></script>
 		<script src="js/angular-touch.js"></script>
 		<script src="js/angular-animate.js"></script>
@@ -31,11 +31,10 @@
 		<div ng-app="playground">
 			<!-- Templates -->
 			<script type='text/ng-template' id='home'>
-				<button class="button" id="new-board" ng-click="openModal()">New Board!<span> + </span>	</button>			
+				<button class="button new-board" ng-click="openModal()">New Board!<span> + </span>	</button>			
 				<div class="container">
 					<div id="newBoardModal"></div>
-				</div>
-				
+				</div>				
 			</script>
 			<script type='text/ng-template' id='board-creation-modal'>
 				<div class="modal-dialog-centered" role="document">
@@ -46,13 +45,17 @@
 							<form>								
 								<div class="modal-body">
 									<div class="container-fluid">
-										<div class="row">
+										<div class="row" style="height:500px;">
 											<div class="col-lg-6 col-md-6 col-sm-6 ml-auto">
-												Board
+												<h3>Board</h3>
+												<hr>
 												<div class="row">
 													<div class="form-group col-lg-12 col-md-12 col-sm-12">
-														<label>Board Name</label>
-														<input ng-model="board.name" id="board_name" class="form-control" type="text" ng-required></input>
+														<uib-tabset>
+															<uib-tab index="0" heading="Board Name">
+																<input ng-model="board.name" id="board_name" class="form-control" type="text" ng-required></input>
+															</uib-tab>
+														</uib-tabset>														
 													</div>
 												</div>
 												<div class="row">
@@ -62,12 +65,13 @@
 												</div>
 											</div>
 											<div class="col-lg-6 col-md-6 col-sm-6 ml-auto">
-												Team												
+												<h3>Team</h3>
+												<hr>												
 												<uib-tabset active="true" class="nav-fill">
 													<uib-tab index="0" heading="Create Team" ng-click="createNewTeam = true"><div new-team ng-show="createNewTeam"></div></uib-tab>
 													<uib-tab index="1" heading="Select Team" ng-click="createNewTeam = false"><div select-team ng-show="!createNewTeam"></div></uib-tab>
 												<uib-tabset>
-											</div>											
+											</div>										
 										</div>																		
 										<div class="modal-footer">
 											<div class="row">
@@ -92,11 +96,14 @@
 							<div class="form-group">
 								<label>{{ itemsSingularLabel }}</label>							
 								<input placeholder="{{ itemsSingularLabel + '...'}}" ng-model="item.name" class="form-control" type="text" ng-required></input>
-								<div ng-click="deleteItem(item)">Delete</div>								
+								<button class="button" ng-click="deleteItem(item)">Delete</button>								
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-12 col-md-12 col-sm-12" ng-click="addNewItem()">{{items.length == 0? 'Add New ' + itemsSingularLabel : 'Add More ' + itemsPluralLabel}}</div>
+					<div class="col-lg-12 col-md-12 col-sm-12">
+						<button class="button" ng-click="addNewItem()">
+							{{items.length == 0? 'Add New ' + itemsSingularLabel : 'Add More ' + itemsPluralLabel}}
+						</button>
 				</div>
 				<div class="row">
 					<div ng-click=addNewItem()></div>
@@ -106,8 +113,7 @@
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12">
 						<div class="form-group">
-							<label>Team's Name</label>							
-							<input ng-model="team.name" class="form-control" type="text" ng-required></input>
+							<input ng-model="team.name" placeholder="Team's Name..." class="form-control" type="text" ng-required></input>
 						</div>
 					</div>
 				</div>
@@ -125,11 +131,24 @@
 			<script type="text/ng-template" id="select-team">
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12">
-						Your Teams
+						<h4>Your Teams</h4>
 					</div>
 				</div>
-				<div ng-repeat="team in userTeams">
-					ACCORDION
+				<div>
+					<uib-accordion close-others="accordionOneAtATime" id="new-board-modal-accordion">
+						<div uib-accordion-group class="panel-default" ng-repeat="team in userTeams" ng-click="selectTeam(team.id)">
+							<uib-accordion-heading>
+								<div class="panel-heading">
+									{{team.name}}
+									<input class="pull-right team-radio-button" type="radio" id="{{'team_' + team.id + '_radio'}}"></input>																	
+								</div>
+							</uib-accordion-heading>
+							
+							<ul class="list-group list-group-flush">
+								<li class="list-group-item" ng-repeat="member in team.members">{{member.name}}</li>
+							</ul>
+						</div>
+					</uib-accordion>
 				</div>
 			</script>
 			<!-- View -->
