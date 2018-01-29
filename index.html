@@ -5,17 +5,21 @@
 		<meta charset="utf-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<title>Playground - Beating Team Boards</title>
+
+		<link 
+			rel="stylesheet" 
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" 
+			integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" 
+			crossorigin="anonymous">
+
+		<link rel="stylesheet" href="css/playground.css">
+		<link href="https://fonts.googleapis.com/css?family=Erica+One|Sigmar+One" rel="stylesheet">
 		<script
   			src="https://code.jquery.com/jquery-1.12.4.min.js"
   			integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
   			crossorigin="anonymous"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular-route.min.js"></script>
-		<link 
-			rel="stylesheet" 
-			href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" 
-			integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" 
-			crossorigin="anonymous">
 		<script 
 			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" 
 			integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" 
@@ -38,54 +42,57 @@
 		<div ng-app="playground">
 			<!-- Templates -->
 			<script type='text/ng-template' id='home'>
-				<div class="row">
-					<div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4" ng-click="openModal()">New Board!<span> + </span></div>						
+				<button class="button" id="new-board" ng-click="openModal()" data-toggle="modal" data-target="#newBoardModal">New Board!<span> + </span>	</button>			
+				<div class="container">
+					<div board-creation-modal ng-show="showModal" id="newBoardModal"></div>
 				</div>
-				<div board-creation-modal ng-show="showModal"></div>
+				
 			</script>
 			<script type='text/ng-template' id='board-creation-modal'>
-				<div class="modal-dialog-centered" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title">New Board</h5>
-						</div>
-						<form>
-							<div class="modal-body">
-								<div class="row">
-									<div class="col-lg-6 col-md-6 col-sm-6">
-										Board
-									</div>
-									<div class="col-lg-6 col-md-6 col-sm-6">
-										Team
-										<div class="col-lg-6 col-md-6 col-sm-6">
-											<div ng-click="createNewTeam = true">Create Team</div>
-											<div ng-click="createNewTeam = false">Select Team</div>
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-lg-6 col-md-6 col-sm-6">
-										<div class="form-group">
-											<label>Board Name</label>
-											<input ng-model="board.name" id="board_name" class="form-control" type="text" ng-required></input>
-										</div>
-									</div>						
-								</div>
-								<div class="row">
-									<div class="col-lg-6 col-md-6 col-sm-6">
-										<div board-items items="columns" items-plural-label="{{columnsPluralLabel}}" items-singular-label="{{columnsSingularLabel}}"></div>
-									</div>
-									<div class="col-lg-6 col-md-6 col-sm-6">
-										<div new-team ng-show="createNewTeam"></div>
-										<div select-team ng-show="!createNewTeam"></div>
-									</div>	
-								</div>								
-								<div class="modal-footer">
-									<button type="button" ng-click="createBoard()">Create Board!</button>
-									<button type="button" ng-click="cancelBoardModal()">Cancel</button>
-								</div>
+				<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog-centered" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">New Board</h5>
 							</div>
-						</form>
+							<form>
+								<div class="modal-body">
+									<div class="row">
+										<div class="col-lg-6 col-md-6 col-sm-6">
+											Board
+										</div>
+										<div class="col-lg-6 col-md-6 col-sm-6">
+											Team
+											<div class="col-lg-6 col-md-6 col-sm-6">
+												<div ng-click="createNewTeam = true">Create Team</div>
+												<div ng-click="createNewTeam = false">Select Team</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-lg-6 col-md-6 col-sm-6">
+											<div class="form-group">
+												<label>Board Name</label>
+												<input ng-model="board.name" id="board_name" class="form-control" type="text" ng-required></input>
+											</div>
+										</div>						
+									</div>
+									<div class="row">
+										<div class="col-lg-6 col-md-6 col-sm-6">
+											<div board-items items="columns" items-plural-label="{{columnsPluralLabel}}" items-singular-label="{{columnsSingularLabel}}"></div>
+										</div>
+										<div class="col-lg-6 col-md-6 col-sm-6">
+											<div new-team ng-show="createNewTeam"></div>
+											<div select-team ng-show="!createNewTeam"></div>
+										</div>	
+									</div>								
+									<div class="modal-footer">
+										<button type="button" ng-click="createBoard()">Create Board!</button>
+										<button type="button" ng-click="cancelBoardModal()">Cancel</button>
+									</div>
+								</div>
+							</form>
+						</div>
 					</div>
 				</div>
 			</script>
@@ -135,8 +142,12 @@
 			</script>
 			<!-- View -->
 			<div class="container">
-				<div ng-view></div>
-			</div>
+				<div class="navbar">
+					<h1 id="title" style="margin:auto;text-align:center;margin-top:30px;width:100%">PLAYGROUND</h1>
+				</div>
+			</div>		
+				<div id="board" ng-view></div>
+							
 		</div>
 	</body>
 </html>
