@@ -15,7 +15,7 @@ body {
     font-family: 'Erica One', cursive;
     letter-spacing: 1em;
     color: #e7a61a;    
-    text-shadow: 10px 3px red;
+    text-shadow: 10px 3px rgb(241, 47, 138);
     
 }
 #new-board {

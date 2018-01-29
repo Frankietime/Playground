@@ -1,15 +1,9 @@
 app = angular.module('playground');
 
-app.controller('homeController',[ '$scope', '$uibModal', function ($scope, $uibModal) {
+app.controller('homeController',[ '$scope', '$uibModal', '$document', function ($scope, $uibModal, $document) {
 	$scope.modalUrl = 'board-creation-modal';
 	$scope.showModal = false;
-	$scope.columnsPluralLabel = 'Columns';
-	$scope.columnsSingularLabel = 'Column';
-	$scope.invitationsPluralLabel = 'E-mails';
-	$scope.invitationsSingularLabel = 'Team Member E-mail';
-	$scope.modalTabsId = 'modal-tabs';
-	$scope.columns = [];
-	$scope.invitationEmails = [];
+	
 
 	$scope.userTeams = [
 		{
@@ -57,20 +51,16 @@ app.controller('homeController',[ '$scope', '$uibModal', function ($scope, $uibM
 			ariaLabelledBy: 'modal-title',
 			ariaDescribedBy: 'modal-body',
 			templateUrl: 'board-creation-modal',
-			controller: 'modalInstanceController'
-			//appendTo: angular.element(document).find('#newBoardModal')
+			size: 'lg',
+			controller: 'modalInstanceController',
+			controllerAs: '$scope',
+			appendTo: angular.element($document[0].querySelector('#newBoardModal'))
 		});
-		//$scope.showModal = true;
-	};
-	var closeModal = function () {
-		$scope.showModal = false;
-	};
-	$scope.createBoard = function () {
 
-		closeModal();
-	};
-	$scope.cancelBoardModal = function () {
-		closeModal();
-	}
-	
+		modalInstance.result.then(function (selectedItem) {
+			$scope.selected = selectedItem;
+		  }, function () {
+			$log.info('Modal dismissed at: ' + new Date());
+		  });
+		};	
 }]);

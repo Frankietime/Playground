@@ -39,48 +39,50 @@
 			</script>
 			<script type='text/ng-template' id='board-creation-modal'>
 				<div class="modal-dialog-centered" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title">New Board</h5>
-						</div>
-						<form>
-							<div class="modal-body">
-								<div class="row">
-									<div class="col-lg-6 col-md-6 col-sm-6">
-										Board
-									</div>
-									<div class="col-lg-6 col-md-6 col-sm-6">
-										Team
-										<div class="col-lg-6 col-md-6 col-sm-6">
-											<div ng-click="createNewTeam = true">Create Team</div>
-											<div ng-click="createNewTeam = false">Select Team</div>
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-lg-6 col-md-6 col-sm-6">
-										<div class="form-group">
-											<label>Board Name</label>
-											<input ng-model="board.name" id="board_name" class="form-control" type="text" ng-required></input>
-										</div>
-									</div>						
-								</div>
-								<div class="row">
-									<div class="col-lg-6 col-md-6 col-sm-6">
-										<div board-items items="columns" items-plural-label="{{columnsPluralLabel}}" items-singular-label="{{columnsSingularLabel}}"></div>
-									</div>
-									<div class="col-lg-6 col-md-6 col-sm-6">
-										<div new-team ng-show="createNewTeam"></div>
-										<div select-team ng-show="!createNewTeam"></div>
-									</div>	
-								</div>								
-								<div class="modal-footer">
-									<button type="button" ng-click="createBoard()">Create Board!</button>
-									<button type="button" ng-click="cancelBoardModal()">Cancel</button>
-								</div>
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">New Board</h5>
 							</div>
-						</form>
-					</div>
+							<form>								
+								<div class="modal-body">
+									<div class="container-fluid">
+										<div class="row">
+											<div class="col-lg-6 col-md-6 col-sm-6 ml-auto">
+												Board
+												<div class="row">
+													<div class="form-group col-lg-12 col-md-12 col-sm-12">
+														<label>Board Name</label>
+														<input ng-model="board.name" id="board_name" class="form-control" type="text" ng-required></input>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-lg-12 col-md-12 col-sm-12">
+														<div board-items items="columns" items-plural-label="{{columnsPluralLabel}}" items-singular-label="{{columnsSingularLabel}}"></div>
+													</div>
+												</div>
+											</div>
+											<div class="col-lg-6 col-md-6 col-sm-6 ml-auto">
+												Team												
+												<uib-tabset active="true" class="nav-fill">
+													<uib-tab index="0" heading="Create Team" ng-click="createNewTeam = true"><div new-team ng-show="createNewTeam"></div></uib-tab>
+													<uib-tab index="1" heading="Select Team" ng-click="createNewTeam = false"><div select-team ng-show="!createNewTeam"></div></uib-tab>
+												<uib-tabset>
+											</div>											
+										</div>																		
+										<div class="modal-footer">
+											<div class="row">
+												<div class="col-lg-6 col-md-6 col-sm-6">
+													<button type="button" ng-click="createBoard()">Create Board!</button>
+												</div>
+												<div class="col-lg-6 col-md-6 col-sm-6">
+													<button type="button" ng-click="cancelBoardModal()">Cancel</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>								
+							</form>
+						</div>
 				</div>
 			</script>
 			<script type="text/ng-template" id="board-items">
@@ -103,8 +105,9 @@
 			<script type="text/ng-template" id="new-team">
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12">
-						<div class="form-group">							
-							<input placeholder="Team's Name..."ng-model="team.name" class="form-control" type="text" ng-required></input>
+						<div class="form-group">
+							<label>Team's Name</label>							
+							<input ng-model="team.name" class="form-control" type="text" ng-required></input>
 						</div>
 					</div>
 				</div>
@@ -121,7 +124,9 @@
 			</script>
 			<script type="text/ng-template" id="select-team">
 				<div class="row">
-					Your Teams
+					<div class="col-lg-12 col-md-12 col-sm-12">
+						Your Teams
+					</div>
 				</div>
 				<div ng-repeat="team in userTeams">
 					ACCORDION
