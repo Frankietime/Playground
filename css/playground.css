@@ -66,5 +66,9 @@ body {
     -webkit-box-shadow: inset -10px -5px 0px 0px rgba(2, 2, 2, 0.432);
     -moz-box-shadow: inset -10px -5px 0px 0px rgba(2, 2, 2, 0.432);
     box-shadow: inset -30px -10px 0px 0px rgba(2, 2, 2, 0.432);
-    
+}
+
+.playground-selected-item {
+    outline-style: solid !important;
+    outline-color: #e7a61a !important;
 }

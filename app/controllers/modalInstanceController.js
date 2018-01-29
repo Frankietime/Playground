@@ -8,10 +8,11 @@ app.controller('modalInstanceController',['$uibModalInstance', '$scope', functio
 	$scope.modalTabsId = 'modal-tabs';
 	$scope.columns = [];
     $scope.invitationEmails = [];
-    $scope.accordionOneAtATime = true;
+    $scope.newTeam = true;
     $scope.userTeams = [
 		{
-			id: 1,
+            id: 1,
+            selected: false,
 			name: 'Kickass Team',
 			members: [
 				{
@@ -29,7 +30,8 @@ app.controller('modalInstanceController',['$uibModalInstance', '$scope', functio
 			]	
 		},
 		{
-			id: 2,
+            id: 2,
+            selected: false,
 			name: 'Cool Team',
 			members: [
 				{
@@ -46,16 +48,19 @@ app.controller('modalInstanceController',['$uibModalInstance', '$scope', functio
 				}
 			]	
 		}		
-	];
-    
-    var closeModal = function () {
-		$scope.showModal = false;
-	};
+    ];   
 	$scope.createBoard = function () {
 
 		closeModal();
 	};
 	$scope.cancelBoardModal = function () {
-		closeModal();
-	}
+		$uibModalInstance.dismiss('cancel');
+    };
+    $scope.createNewTeam = function () {
+        $scope.newTeam = true;
+        
+    };
+    $scope.selectTeam = function () {
+        $scope.newTeam = false;
+    }
 }]);

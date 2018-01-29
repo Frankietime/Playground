@@ -1,1 +1,0 @@
-<div>New Board!<span> + </span></div>

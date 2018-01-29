@@ -21,6 +21,7 @@
 		<script src="app/controllers/homeController.js"></script>
 		<script src="app/controllers/modalInstanceController.js"></script>
 		<script src="app/services/newBoardService.js"></script>
+		<script src="app/directives/home.js"></script>		
 		<script src="app/directives/board-creation-modal.js"></script>		
 		<script src="app/directives/board-items.js"></script>
 		<script src="app/directives/new-team.js"></script>
@@ -30,12 +31,6 @@
 	<body>
 		<div ng-app="playground">
 			<!-- Templates -->
-			<script type='text/ng-template' id='home'>
-				<button class="button new-board" ng-click="openModal()">New Board!<span> + </span>	</button>			
-				<div class="container">
-					<div id="newBoardModal"></div>
-				</div>				
-			</script>
 			<script type='text/ng-template' id='board-creation-modal'>
 				<div class="modal-dialog-centered" role="document">
 						<div class="modal-content">
@@ -68,15 +63,19 @@
 												<h3>Team</h3>
 												<hr>												
 												<uib-tabset active="true" class="nav-fill">
-													<uib-tab index="0" heading="Create Team" ng-click="createNewTeam = true"><div new-team ng-show="createNewTeam"></div></uib-tab>
-													<uib-tab index="1" heading="Select Team" ng-click="createNewTeam = false"><div select-team ng-show="!createNewTeam"></div></uib-tab>
+													<uib-tab index="0" heading="Create Team" ng-click="createNewTeam()">
+														<div new-team ng-show="newTeam"></div>
+													</uib-tab>
+													<uib-tab index="1" heading="Select Team" ng-click="selectTeam()">
+														<div select-team ng-show="!newTeam" teams="userTeams"></div>
+													</uib-tab>
 												<uib-tabset>
 											</div>										
 										</div>																		
 										<div class="modal-footer">
 											<div class="row">
 												<div class="col-lg-6 col-md-6 col-sm-6">
-													<button type="button" ng-click="createBoard()">Create Board!</button>
+													<button type="button" ng-click="createBoard()">Next!</button>
 												</div>
 												<div class="col-lg-6 col-md-6 col-sm-6">
 													<button type="button" ng-click="cancelBoardModal()">Cancel</button>
@@ -135,12 +134,12 @@
 					</div>
 				</div>
 				<div>
-					<uib-accordion close-others="accordionOneAtATime" id="new-board-modal-accordion">
-						<div uib-accordion-group class="panel-default" ng-repeat="team in userTeams" ng-click="selectTeam(team.id)">
+					<uib-accordion close-others="true" id="new-board-modal-accordion">
+						<div uib-accordion-group class="panel-default modal-teams" is-open="" ng-repeat="team in teams" id="{{'team_' + team.id}}" ng-click="selectTeam(this.team, $event)">
 							<uib-accordion-heading>
 								<div class="panel-heading">
 									{{team.name}}
-									<input class="pull-right team-radio-button" type="radio" id="{{'team_' + team.id + '_radio'}}"></input>																	
+									<!-- <input class="pull-right team-radio-button" ng-model="team.selected" type="radio" id="{{'team_' + team.id + '_radio'}}"></input>																	 -->
 								</div>
 							</uib-accordion-heading>
 							
