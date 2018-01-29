@@ -5,15 +5,16 @@ body {
     margin: 0;
     padding: 0;
     background-color: #11121b;
-    color: #e7a61a;
+    color: #000000;
     letter-spacing: 0.5em;
-    font-family: 'Sigmar One', cursive;
+    font-family: Sans-Serif;
     
     
 }
 #title {
     font-family: 'Erica One', cursive;
     letter-spacing: 1em;
+    color: #e7a61a;    
     text-shadow: 10px 3px red;
     
 }
@@ -34,6 +35,7 @@ body {
     color: #ff9900;
     font-size: 20pt;
     cursor: pointer;
+    font-family: 'Sigmar One', cursive;    
 }
 #new-board:hover {
     background-color: rgb(17, 17, 29);

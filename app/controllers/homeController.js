@@ -1,6 +1,6 @@
 app = angular.module('playground');
 
-app.controller('homeController',[ '$scope', 'newBoardService', function ($scope, newBoardService) {
+app.controller('homeController',[ '$scope', '$uibModal', function ($scope, $uibModal) {
 	$scope.modalUrl = 'board-creation-modal';
 	$scope.showModal = false;
 	$scope.columnsPluralLabel = 'Columns';
@@ -52,7 +52,15 @@ app.controller('homeController',[ '$scope', 'newBoardService', function ($scope,
 
 	$scope.createNewTeam = true;
 	$scope.openModal = function () {
-		$scope.showModal = true;
+		var modalInstance = $uibModal.open({
+			animation: true,
+			ariaLabelledBy: 'modal-title',
+			ariaDescribedBy: 'modal-body',
+			templateUrl: 'board-creation-modal',
+			controller: 'modalInstanceController'
+			//appendTo: angular.element(document).find('#newBoardModal')
+		});
+		//$scope.showModal = true;
 	};
 	var closeModal = function () {
 		$scope.showModal = false;
