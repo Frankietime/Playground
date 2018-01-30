@@ -1,6 +1,6 @@
 var app = angular.module('playground');
 
-app.service('newBoardService', ['$http', '$q', function ($http, $q){
+app.service('boardService', ['$http', '$q', function ($http, $q){
 	var service = {};
 	var currentBoard = {};
 	service.publishNewBoard = function (data, params) {
@@ -19,5 +19,10 @@ app.service('newBoardService', ['$http', '$q', function ($http, $q){
 	service.getCurrentBoard = function () {
 		return currentBoard;
 	};
+	service.cleanBoardData = function (data) {
+		var cleanData = data;
+			//data.columns.splice($filter('filter'))
+		return cleanData;
+	}
 	return service;
 }]);

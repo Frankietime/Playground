@@ -2,14 +2,15 @@
     <div class="col-lg-12 col-md-12 col-sm-12" ng-repeat="item in items">
         <div id="{{'item_' + item.id }}">
             <div class="form-group">
-                <label>{{ itemsSingularLabel }}</label>							
-                <input placeholder="{{ itemsSingularLabel + '...'}}" ng-model="item.data" class="form-control" type="text" ng-required></input>
-                <button type="button" class="button" ng-click="item.cantDelete ? '' : deleteItem(item)">{{ item.cantDelete ? 'Required Column' : 'Delete'}}</button>								
+                <label>{{ itemsSingularLabel + ' ' + (items.indexOf(item) + 1) }}</label>							
+                <input placeholder="{{item.placeholder}}" ng-model="item.data" style="text-transform: capitalize" class="form-control" type="text" ng-required>                    
+                </input>
+                <button type="button" class="playground-modal-button" ng-show="!item.cantDelete" ng-click="deleteItem(item)">Delete</button>								
             </div>
         </div>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12">
-        <button class="button" ng-click="addNewItem()">
+        <button class="playground-modal-button" ng-click="addNewItem()">
             {{items.length == 0? 'Add New ' + itemsSingularLabel : 'Add More ' + itemsPluralLabel}}
         </button>
 </div>

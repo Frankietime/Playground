@@ -6,7 +6,7 @@ app.config(function($routeProvider) {
 		templateUrl: path + 'home.html',
 		controller: 'homeController'
 	}).when('/board', {
-		templateUrl: path + 'board.html',
+		templateUrl: path + 'board-view.html',
 		controller: 'boardController'
 	}).otherwise({
 		templateUrl: path + 'home.html',

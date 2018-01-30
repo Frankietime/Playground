@@ -1,16 +1,19 @@
 var app = angular.module('playground');
 
-app.controller('newBoardModalController',['$uibModalInstance', '$scope', '$log', '$filter', '$location', 'newBoardService', 'teamService',
-	function ($uibModalInstance, $scope, $log, $filter, $location, newBoardService, teamService){
+app.controller('newBoardModalController',['$uibModalInstance', '$scope', '$log', '$filter', '$location', 'boardService', 'teamService',
+	function ($uibModalInstance, $scope, $log, $filter, $location, boardService, teamService){
 	var user = 'myself';
 	$scope.newBoard = { name: '' };
 	$scope.newTeam = { name: '', bool: true };
 	$scope.columnsPluralLabel = 'Columns';
 	$scope.columnsSingularLabel = 'Column';
 	$scope.invitationsPluralLabel = 'E-mails';
-	$scope.invitationsSingularLabel = 'Team Member E-mail';
+	$scope.invitationsSingularLabel = 'E-mail';
 	$scope.modalTabsId = 'modal-tabs';
-	$scope.columns = [{ cantDelete: true },{ cantDelete: true}];
+	$scope.columns = [
+		{ cantDelete: true, placeholder:'Start your tasks here...', items: [] },
+		{ cantDelete: true, placeholder: $scope.columns && $scope.columns.length >= 1 ? '..step ' + $scope.columns.length : '...and move them here when completed', items: [] }
+	];
     $scope.invitationEmails = [];
     
     $scope.userTeams = [
@@ -65,7 +68,7 @@ app.controller('newBoardModalController',['$uibModalInstance', '$scope', '$log',
 			team: selectedTeam
 		};
 		var params = {};
-		newBoardService.publishNewBoard(data, params).then(function(res) {
+		boardService.publishNewBoard(data, params).then(function(res) {
 			console.log('New board created succesfully. ' + res.message);
 			$uibModalInstance.close();
 			$location.url('/board');
@@ -82,5 +85,5 @@ app.controller('newBoardModalController',['$uibModalInstance', '$scope', '$log',
     };
     $scope.selectTeam = function () {
         $scope.newTeam.bool = false;
-    };
+	};
 }]);

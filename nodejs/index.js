@@ -29,6 +29,10 @@ app.get('/app/directives/:file',function(req,res){
   res.sendFile(path.join(directory + 'app/directives/' + req.params.file));
 });
 
+app.get('/app/filters/:file',function(req,res){
+  res.sendFile(path.join(directory + 'app/filters/' + req.params.file));
+});
+
 app.get('/templates/:file',function(req,res){
   res.sendFile(path.join(directory + 'app/templates/' + req.params.file));
 });
