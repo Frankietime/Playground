@@ -14,7 +14,7 @@ app.directive('boardItems',[ function (){
 			scope.addNewItem = function () {
 				scope.items.push({
 					id: nextItemId,
-					name: ''
+					data: ''
 				});
 				nextItemId++;
 			};

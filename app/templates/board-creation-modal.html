@@ -14,7 +14,7 @@
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
                                     <uib-tabset>
                                         <uib-tab index="0" heading="Board Name">
-                                            <input ng-model="board.name" id="board_name" class="form-control" type="text" ng-required></input>
+                                            <input ng-model="newBoard.name" id="board_name" class="form-control" type="text" ng-required></input>
                                         </uib-tab>
                                     </uib-tabset>														
                                 </div>
@@ -30,10 +30,10 @@
                             <hr>												
                             <uib-tabset active="active" class="nav-fill">
                                 <uib-tab index="0" heading="Create Team" ng-click="createNewTeam()">
-                                    <div new-team ng-show="newTeam"></div>
+                                    <div new-team ng-show="newTeam.bool"></div>
                                 </uib-tab>
                                 <uib-tab index="1" heading="Select Team" ng-click="selectTeam()">
-                                    <div select-team ng-show="!newTeam" teams="userTeams"></div>
+                                    <div select-team ng-show="!newTeam.bool" teams="userTeams"></div>
                                 </uib-tab>
                             <uib-tabset>
                         </div>										

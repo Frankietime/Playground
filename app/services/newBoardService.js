@@ -1,23 +1,23 @@
 var app = angular.module('playground');
 
-app.service('newBoardService', ['$http', function ($http){
+app.service('newBoardService', ['$http', '$q', function ($http, $q){
 	var service = {};
 	var currentBoard = {};
-		service.newBoard = function () {
-			return [{board: {
-				
-			}}]
-		};
-		service.publishNewBoard = function (board) {
-			$http({
-				url: 'Api/Board/New',
-				method: 'POST',
-				data: board
-			});
-			currentBoard = board;
-		};
-		service.getCurrentBoard = function () {
-			return currentBoard;
-		};
+	service.publishNewBoard = function (data, params) {
+		var post = $q.defer();
+		var res = {};
+		if (data != null) {
+			currentBoard = data;
+			res.data = data;
+			res.message = '\nCreator ' + data.creator + '\n' + 'Team: ' + data.team.name;
+			post.resolve(res);		
+		} else {
+			post.reject('data param is null');
+		}
+		return post.promise;
+	};
+	service.getCurrentBoard = function () {
+		return currentBoard;
+	};
 	return service;
 }]);

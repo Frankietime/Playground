@@ -11,10 +11,10 @@ app.controller('homeController',[ '$scope', '$uibModal', '$document', function (
 			animation: true,
 			ariaLabelledBy: 'modal-title',
 			ariaDescribedBy: 'modal-body',
+			keyboard: true,
 			templateUrl: '../templates/board-creation-modal.html',
 			size: 'lg',
-			controller: 'modalInstanceController',
-			controllerAs: '$scope',
+			controller: 'newBoardModalController',
 			appendTo: angular.element($document[0].querySelector('#newBoardModal'))
 		});
 
