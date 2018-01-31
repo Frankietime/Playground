@@ -64,6 +64,7 @@ app.controller('newBoardModalController',['$uibModalInstance', '$scope', '$log',
 		var data = {
 			boardName: $scope.newBoard.name,
 			creator: user,
+			state: 'initial',
 			columns: $scope.columns,
 			team: selectedTeam
 		};

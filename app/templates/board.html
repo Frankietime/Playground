@@ -1,13 +1,13 @@
 <div style="margin-left:2%; margin-right:2%;">
     <div class="container-fluid">
         <div class="row">
-            <div ng-repeat="column in boardData.columns" class="col-sm-2 col-md-2 col-lg-2">
+            <div ng-repeat="column in boardData.columns" class="col-sm-2 col-md-2 col-lg-2 list-column">
                 <div class="playground-list" ng-class="{ 'new-list' : column.newList, 'list' : !column.newList }">
-                    <div class="container">
+                    <div class="container-fluid">
                         <p style="text-transform: capitalize;" class="pull-left">{{column.data}}</p>
                         <span ng-show="column.newList" class="glyphicon glyphicon-plus pull-right"></span>
                     </div>
-                    <div class="container">
+                    <div class="container-fluid">
                         <ul class="list-group">
                             
                             <li  ng-repeat="item in column.items">

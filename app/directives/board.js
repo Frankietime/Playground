@@ -1,6 +1,6 @@
 var app = angular.module('playground');
 
-app.directive('board',[ function () {
+app.directive('board', [function () {
     return {
         restrict: 'A',
         templateUrl: '../templates/board.html',
@@ -9,7 +9,7 @@ app.directive('board',[ function () {
         },
         link: function (scope) {
             scope.pushItem = function (column) {
-                column.items.push({title:'New Item'})
+                column.items.push({title: 'New Item'});
             }
         }
     };

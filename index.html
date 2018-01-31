@@ -22,9 +22,11 @@
 		<script src="app/controllers/homeController.js"></script>
 		<script src="app/controllers/newBoardModalController.js"></script>
 		<script src="app/controllers/boardController.js"></script>
+		<script src="app/controllers/boardModalController.js"></script>
 
 		<script src="app/services/boardService.js"></script>
 		<script src="app/services/teamService.js"></script>
+		<script src="app/services/pendingActionsService.js"></script>
 
 		<script src="app/directives/home.js"></script>		
 		<script src="app/directives/board-creation-modal.js"></script>		
@@ -32,6 +34,7 @@
 		<script src="app/directives/new-team.js"></script>
 		<script src="app/directives/select-team.js"></script>
 		<script src="app/directives/board.js"></script>
+		<script src="app/directives/popup.js"></script>
 		
 	</head>
 	<body>
@@ -39,7 +42,7 @@
 			<!-- View -->
 			<div class="container">
 				<div class="navbar">
-						<a href="#"><h1 id="title">PLAYGROUND</h1></a>
+					<a href="#"><h1 id="title">PLAYGROUND</h1></a>
 				</div>
 			</div>		
 				<div id="board" ng-view></div>							
