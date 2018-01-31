@@ -4,6 +4,7 @@ app.controller('homeController',[ '$scope', '$uibModal', '$document', function (
 	$scope.modalUrl = 'board-creation-modal';
 	$scope.showModal = false;
 	$scope.createNewTeam = true;
+	$scope.boardEmpty = true;
 
 	$scope.openModal = function () {
 		var modalInstance = $uibModal.open({
