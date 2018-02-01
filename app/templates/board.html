@@ -1,19 +1,29 @@
 <div style="margin-left:2%; margin-right:2%;">
     <div class="container-fluid">
-        <div class="row">
-            <div ng-repeat="column in boardData.columns" class="col-sm-2 col-md-2 col-lg-2 list-column">
+        <div class="row playground-board-view">
+            <div ng-repeat="column in boardData.columns" class="col-sm-3 col-md-3 col-lg-3 list-column">
                 <div class="playground-list" ng-class="{ 'new-list' : column.newList, 'list' : !column.newList }">
-                    <div class="container-fluid">
+                    <div class="container-fluid" style="padding:0;">
                         <p style="text-transform: capitalize;" class="pull-left">
                             {{column.data}}
                         </p>
                         <span ng-show="column.newList" class="glyphicon glyphicon-plus pull-right"></span>
                     </div>
                     <hr ng-show="!column.newList">
-                    <div class="container-fluid">
-                        <ul class="list-group">
-                            <li  ng-repeat="item in column.items">
-                                {{item.title}}
+                    <div class="container-fluid" style="padding:0;">
+                        <ul class="list-group board-list">
+                            <li ng-repeat="item in column.items">
+                                <div class="">
+                                    <div class="card">
+                                        <div class="card-title">
+                                            {{item.title}}
+                                        </div>
+                                        <div class="card-details">
+
+                                        </div>
+                                    </div>
+
+                                </div>
                             </li>
                         </ul>
                     </div>

@@ -6,9 +6,7 @@ app.controller('boardController', ['$scope', 'boardService', 'pendingActionsServ
     $scope.board = boardService.getCurrentBoard();
     $scope.board.columns.push({data: 'Add new list...', newList: true});
 
-    
-
-    var init = function () {
+     var init = function () {
         var boardPendingActions = pendingActionsService.getBoardPendingActions($scope.board);
         if (boardPendingActions) {
             angular.forEach(boardPendingActions, function (pendingAction) {
@@ -40,4 +38,19 @@ app.controller('boardController', ['$scope', 'boardService', 'pendingActionsServ
     }
 
     init();
+
+    $scope.playInitialBeat = function (selectedBeat) {
+        //create a synth and connect it to the master output (your speakers)
+        // var synth = new Tone.Synth().toMaster();
+    
+        // //play a note every quarter-note
+        // var loop = new Tone.Loop(function(time){
+        //     synth.triggerAttackRelease("C2", "8n", time);
+        // }, "4n");
+        // //loop between the first and fourth measures of the Transport's timeline
+        // loop.start("1m").stop("32m");
+        // Tone.Transport.start();
+        // $uibModalInstance.close();
+    
+        };
 }]);

@@ -7,9 +7,15 @@ body {
     padding: 0;
     background-color: #11121b;
     color: #ffffff;
-    font-family: 'Comfortaa', cursive, 'Roboto', Sans-Serif;
+    /* font-family: 'Comfortaa', cursive, 'Roboto', Sans-Serif; */
     height: 100%;
+    font-family: 'Rubik', sans-serif;
 }
+
+body:-webkit-scrollbar{
+    width:16px;
+    background-color:#cccccc;
+    } 
 
 .wrapper {
     height: 80%; 
@@ -209,7 +215,8 @@ a:active {
     padding: 0% 1% 0% 1%;
     /* background-color: rgb(55, 135, 255); */
     /* background-color: rgb(245, 167, 203); */
-    background-color: rgb(241, 47, 138);
+    /* background-color: rgb(241, 47, 138); */
+    background-color: #11121b;
     margin: 0;
     border-radius: 15px 15px 0px 0px;
     padding: 1em;    
@@ -263,9 +270,109 @@ a:active {
     -moz-box-shadow: inset -10px -5px 0px 0px rgba(2, 2, 2, 0.432);
     box-shadow: inset -10px -10px 0px 0px rgba(2, 2, 2, 0.432);
     color: black;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
-.table-container {
+.playground-board-view {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    height: 100%;
+    width:100%;
+    padding-bottom: 100%; 
+    margin-bottom: -100%;
+}
+
+.board-view-container
+{
+    position: relative;
+    display:block;
+    width: 100%;
+    height:100%;
+    padding-bottom: 3.3%;
+}
+
+.board-view-row
+{
+    overflow: hidden;
+    height: 100%;
+}
+
+.menu-panel {
+    border-color: transparent;
+}
+
+.menu-column {
+    float: right;
+    height: 100%;
+}
+
+.board-column {
+    float: left;
+    height: 100%;
+}
+
+.menu-heading {
+    text-align: center;
+}
+.board-list {
+    list-style-type: none;
+}
+.team-members-item {
+    padding: 0.3em;
+}
+
+.team-header {
+    padding: 0.3em;
+}
+
+.team-member-letters {
+    border-radius: 25em;
+    background-color: #5b5f88;
+    color: white;
+    /* padding-top: 0.1em; */
+    /* margin: 0 4px 4px 0; */
+    width: 20px;
+    text-align: center;
+    height: 20px;
+    overflow: visible;
+    padding: 0.1em;
+}
+.initials {
+    top: 0;
+    height: 20px;
+    width: 100%;
+    color: inherit;
+    overflow: hidden;
+    text-align: center;
+    margin: 1px;
+}
+
+.audio-switch-container {
+
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 200px;
+    height: 100%;
+    padding: 6px 6px 2px 8px;
+    border-radius: 7px;
+    margin: 0.3em;
+    background-color: white;
+    color: black;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.card-details {
+    padding: 2px 16px;
+}
+
+/* .table-container {
     display: table;
   }
   
@@ -278,23 +385,5 @@ display: table-row;
 display: table-cell;
 float: none;
 vertical-align: top;
-}
+} */
 
-.menu-container
-{
-    position: relative;
-    display:block;
-    width: 100%;
-    height:100%;
-    padding-bottom: 3.3%;
-}
-
-.menu-row
-{
-    overflow: hidden;
-    height: 100%;
-}
-.menu-column {
-    float: left;
-    height: 100%;
-}

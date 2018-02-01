@@ -5,14 +5,43 @@
         </div>
     </div>        
     </div>
-    <div class="menu-container">
-        <div class="row menu-row">
-            <div class="col-lg-10 col-md-10">
+    <div class="board-view-container">
+        <div class="row board-view-row">
+            <div class="col-lg-9 col-md-9 board-column">
                 <div board board-data="board" id="board-view"></div>
             </div>
-            <div class="col-lg-2 col-md-2 menu-column" >
+            <div class="col-lg-3 col-md-3 menu-column" >
                 <div class="playground-board-menu">
-                    <h3>Menu</h3>
+                    <div class="panel panel-default menu-panel">
+                        <div class="panel-heading menu-heading">
+                            <div class>
+
+                            </div><h3>Menu</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="team-menu">
+                                <div class="team-header">
+                                    <h4>{{ board.team.name }}</h4>
+                                </div>
+                                <ul class="list-group board-list">
+                                    <li class="team-members-item" ng-repeat="member in board.team.members">
+                                        {{ member.name }}
+                                        <div class="pull-right team-member-letters">
+                                            <div class="initials">
+                                                {{ member.name[0] | uppercase }}
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>                               
+                            </div>
+                            <hr>
+                            <div class="board-actions-menu">
+                                <div class="board-mixer">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div board-menu></div>
             </div>

@@ -57,7 +57,7 @@ app.controller('newBoardModalController',['$uibModalInstance', '$scope', '$log',
 		}		
     ];   
 	$scope.createBoard = function () {
-		var selectedTeam = $filter('filter')($scope.userTeams, { selected: true}, true);
+		var selectedTeam = $filter('filter')($scope.userTeams, { selected: true}, true)[0];
 		if (selectedTeam.length == 0) {
 			selectedTeam = teamService.newTeam($scope.invitationEmails, $scope.newTeam.name, user);
 		};

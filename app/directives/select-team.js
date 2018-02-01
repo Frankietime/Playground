@@ -20,17 +20,6 @@ app.directive('selectTeam',['$document', '$filter', function ($document, $filter
                         t.selected = false;
                     }
                 });
-                // var radio = angular.element(element[0].querySelector('#team_' + team.id + '_radio'));
-                // if (radio.attr('checked')) {                                       
-                //     radio.attr('checked', false);
-                // } else {                                                    
-                    
-                //     var radioButtons = angular.element($document[0].querySelectorAll('.team-radio-button'));
-                //     angular.forEach(radioButtons, function (rb, key) {
-                //         angular.element(rb).attr('checked',false);
-                //     });
-                //     radio.attr('checked', true);
-                // }
             };
         }
     };    
