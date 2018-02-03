@@ -29,11 +29,11 @@
                             <h3>Team</h3>
                             <hr>												
                             <uib-tabset active="active" class="nav-fill">
-                                <uib-tab index="0" heading="Create Team" ng-click="createNewTeam()">
-                                    <div new-team ng-show="newTeam.bool"></div>
+                                <uib-tab index="0" heading="Create Team" ng-click="createNewTeamView()">
+                                    <div new-team ng-show="newTeamView.bool"></div>
                                 </uib-tab>
-                                <uib-tab index="1" heading="Select Team" ng-click="selectTeam()">
-                                    <div select-team ng-show="!newTeam.bool" teams="userTeams"></div>
+                                <uib-tab index="1" heading="Select Team" ng-click="selectTeamView()">
+                                    <div select-team ng-show="!newTeamView.bool" teams="userTeams"></div>
                                 </uib-tab>
                             <uib-tabset>
                         </div>										

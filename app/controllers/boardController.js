@@ -1,3 +1,5 @@
+'use-strict';
+
 var app = angular.module('playground');
 
 app.controller('boardController', ['$scope', 'boardService', 'pendingActionsService', '$uibModal', '$log', '$document',

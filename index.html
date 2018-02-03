@@ -4,21 +4,22 @@
 		<!-- Required meta tags -->
 		<meta charset="utf-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		
 		<title>Playground - Beating Team Boards</title>
 
 		<link rel="stylesheet" href="css/bootstrap.css">
-
 		<link rel="stylesheet" href="css/playground.css">
 		<link href="https://fonts.googleapis.com/css?family=Erica+One|Sigmar+One" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
-		
+
 		<script src="js/angular.min.js"></script>
 		<script src="js/angular-route.min.js"></script>
 		<script src="js/ui-bootstrap-tpls-2.5.0.min.js"></script>
 		<script src="js/angular-touch.js"></script>
 		<script src="js/angular-animate.js"></script>
-
+		<script src="js/angular-drag-and-drop-lists.js"></script>
+		
 		<script src="js/tone.js"></script>
 
 		<script src="app/app.js"></script>
@@ -37,10 +38,9 @@
 		<script src="app/directives/new-team.js"></script>
 		<script src="app/directives/select-team.js"></script>
 		<script src="app/directives/board.js"></script>
-		<script src="app/directives/popup.js"></script>
-		
+		<script src="app/directives/popup.js"></script>		
 	</head>
-	<body>
+	<body ng-strict-di>
 		<div class="container" ng-app="playground">
 			<!-- View -->
 			<div class="row">

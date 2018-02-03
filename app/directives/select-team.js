@@ -1,3 +1,5 @@
+'use-strict';
+
 var app = angular.module('playground');
 
 app.directive('selectTeam',['$document', '$filter', function ($document, $filter) {

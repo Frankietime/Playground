@@ -1,10 +1,12 @@
+'use-strict';
+
 var app = angular.module('playground');
 
 app.controller('newBoardModalController',['$uibModalInstance', '$scope', '$log', '$filter', '$location', 'boardService', 'teamService',
 	function ($uibModalInstance, $scope, $log, $filter, $location, boardService, teamService){
 	var user = 'myself';
 	$scope.newBoard = { name: '' };
-	$scope.newTeam = { name: '', bool: true };
+	$scope.newTeamView = { name: '', bool: true };
 	$scope.columnsPluralLabel = 'Columns';
 	$scope.columnsSingularLabel = 'Column';
 	$scope.invitationsPluralLabel = 'E-mails';
@@ -57,16 +59,14 @@ app.controller('newBoardModalController',['$uibModalInstance', '$scope', '$log',
 		}		
     ];   
 	$scope.createBoard = function () {
-		var selectedTeam = $filter('filter')($scope.userTeams, { selected: true}, true)[0];
-		if (selectedTeam.length == 0) {
-			selectedTeam = teamService.newTeam($scope.invitationEmails, $scope.newTeam.name, user);
-		};
+		var team = $scope.newTeamView.bool ? teamService.newTeam($scope.invitationEmails, $scope.newTeamView.name, user) : $filter('filter')($scope.userTeams, { selected: true}, true)[0];
+			
 		var data = {
 			boardName: $scope.newBoard.name,
 			creator: user,
 			state: 'initial',
 			columns: $scope.columns,
-			team: selectedTeam
+			team: team
 		};
 		var params = {};
 		boardService.publishNewBoard(data, params).then(function(res) {
@@ -80,11 +80,11 @@ app.controller('newBoardModalController',['$uibModalInstance', '$scope', '$log',
 	$scope.cancelBoardModal = function () {
 		$uibModalInstance.dismiss('Cancel');
     };
-    $scope.createNewTeam = function () {
-        $scope.newTeam.bool = true;
+    $scope.createNewTeamView = function () {
+        $scope.newTeamView.bool = true;
         
     };
-    $scope.selectTeam = function () {
-        $scope.newTeam.bool = false;
+    $scope.selectTeamView = function () {
+        $scope.newTeamView.bool = false;
 	};
 }]);

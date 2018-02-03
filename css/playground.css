@@ -49,8 +49,15 @@ h1 {
     font-family: 'Erica One', cursive;
     letter-spacing: 1em;
     color: #e7a61a;    
-    text-shadow: 10px 3px rgb(241, 47, 138);
+    text-shadow: 10px 3px #f12f8a;
+    transition: 0.7s;
     
+}
+
+h1:hover {
+    transition: 0.7s;
+    text-shadow: 10px 3px #55afeb;
+
 }
 
 h3 {
@@ -122,9 +129,9 @@ a:active {
     border-radius:15px;
     border: 0px;
     text-align: center;
-    -webkit-box-shadow: 10px 5px 0px 0px rgb(38, 38, 63);
-    -moz-box-shadow: 10px 5px 0px 0px rgb(38, 38, 63);
-    box-shadow: 10px 5px 0px 0px rgb(38, 38, 63);
+    -webkit-box-shadow: 10px 5px 0px 0px #26263f;
+    -moz-box-shadow: 10px 5px 0px 0px #26263f;
+    box-shadow: 10px 5px 0px 0px #26263f;
     color: #000000;
     font-size: 10pt;
     cursor: pointer;
@@ -135,9 +142,9 @@ a:active {
     border-radius:15px;
     border: 0px;
     text-align: center;
-    -webkit-box-shadow: 10px 5px 0px 0px rgb(38, 38, 63);
-    -moz-box-shadow: 10px 5px 0px 0px rgb(38, 38, 63);
-    box-shadow: 10px 5px 0px 0px rgb(38, 38, 63);
+    -webkit-box-shadow: 10px 5px 0px 0px #26263f;
+    -moz-box-shadow: 10px 5px 0px 0px #26263f;
+    box-shadow: 10px 5px 0px 0px #26263f;
     color: #000000;
     font-size: 10pt;
     cursor: pointer;
@@ -148,35 +155,35 @@ a:active {
     border-radius:15px;
     border: 0px;
     text-align: center;
-    -webkit-box-shadow: 10px 5px 0px 0px rgb(38, 38, 63);
-    -moz-box-shadow: 10px 5px 0px 0px rgb(38, 38, 63);
-    box-shadow: 10px 5px 0px 0px rgb(38, 38, 63);
+    -webkit-box-shadow: 10px 5px 0px 0px #26263f;
+    -moz-box-shadow: 10px 5px 0px 0px #26263f;
+    box-shadow: 10px 5px 0px 0px #26263f;
     color: #000000;
     font-size: 10pt;
     cursor: pointer;
 }
 
 .dub-button {
-    background-color: rgb(236, 33, 128);
+    background-color: #ec2180;
     border-radius:15px;
     border: 0px;
     text-align: center;
-    -webkit-box-shadow: 10px 5px 0px 0px rgb(38, 38, 63);
-    -moz-box-shadow: 10px 5px 0px 0px rgb(38, 38, 63);
-    box-shadow: 10px 5px 0px 0px rgb(38, 38, 63);
-    color: rgb(0, 0, 0);
+    -webkit-box-shadow: 10px 5px 0px 0px #26263f;
+    -moz-box-shadow: 10px 5px 0px 0px #26263f;
+    box-shadow: 10px 5px 0px 0px #26263f;
+    color: #000000;
     font-size: 10pt;
     cursor: pointer;
 }
 
 
 .playground-modal {
-    background-color:  rgb(38, 38, 63);
+    background-color:  #26263f;
 }
 
 
 #new-board:hover {
-    background-color: rgb(17, 17, 29);
+    background-color: #11111d;
     
 }
 #board-margin {
@@ -185,24 +192,24 @@ a:active {
 }
 
 #board {
-    background-color:rgb(31, 31, 47);
+    background-color:#1f1f2f;
     height: 100%;
     border-radius: 15px;
     width: 100%;
-    border-color: rgb(194, 25, 137);
+    border-color: #c21989;
     margin-bottom: 10%;
-    -webkit-box-shadow: inset -10px -5px 0px 0px rgba(2, 2, 2, 0.432);
-    -moz-box-shadow: inset -10px -5px 0px 0px rgba(2, 2, 2, 0.432);
-    box-shadow: inset -30px -10px 0px 0px rgba(2, 2, 2, 0.432);
+    -webkit-box-shadow: inset -10px -5px 0px 0px #0202026e;
+    -moz-box-shadow: inset -10px -5px 0px 0px #0202026e;
+    box-shadow: inset -30px -10px 0px 0px #0202026e;
 }
 
 .board-empty {
     background: repeating-linear-gradient(
         -55deg,
-        rgb(94, 94, 156),
-        rgb(94, 94, 156) 5px,
-        rgb(79, 79, 128) 5px,
-        rgb(79, 79, 128) 10px
+        #5e5e9c,
+        #5e5e9c 5px,
+        #4f4f80 5px,
+        #4f4f80 10px
       );
 }
 
@@ -213,9 +220,6 @@ a:active {
 
 .playground-navbar {
     padding: 0% 1% 0% 1%;
-    /* background-color: rgb(55, 135, 255); */
-    /* background-color: rgb(245, 167, 203); */
-    /* background-color: rgb(241, 47, 138); */
     background-color: #11121b;
     margin: 0;
     border-radius: 15px 15px 0px 0px;
@@ -233,19 +237,19 @@ a:active {
 }
 
 .list {
-    background-color:  rgb(83, 83, 136);
+    background-color:  #535388;
     cursor: pointer;
-    -webkit-box-shadow: 7px 7px 0px 0px rgba(2, 2, 2, 0.32);
-    -moz-box-shadow: 7px 7px 0px 0px rgba(2, 2, 2, 0.32);
-    box-shadow: 7px 7px 0px 0px rgba(2, 2, 2, 0.32);
+    -webkit-box-shadow: 7px 7px 0px 0px #02020252;
+    -moz-box-shadow: 7px 7px 0px 0px #02020252;
+    box-shadow: 7px 7px 0px 0px #02020252;
 }
 
 .new-list {
-    background-color: rgba(2, 2, 2, 0.432) !important;
+    background-color: #0202026e !important;
     cursor: pointer;
 }
 .new-list:hover {
-    background-color: rgba(2, 2, 2, 0.588) !important;
+    background-color: #02020296 !important;
 }
 
 .new-card {
@@ -256,20 +260,20 @@ a:active {
     cursor: pointer;
 }
 .new-card:hover {
-    background-color: rgb(107, 107, 177);
+    background-color: #6b6bb1;
     border-shadow: inset; 
 }
 
 .playground-board-menu {
     height: 100%;
-    background-color: white;
+    background-color: #ffffff;
     padding-bottom: 100%; 
     margin-bottom: -100%;
     border-radius: 0px 0px 15px 0px;
-    -webkit-box-shadow: inset -10px -5px 0px 0px rgba(2, 2, 2, 0.432);
-    -moz-box-shadow: inset -10px -5px 0px 0px rgba(2, 2, 2, 0.432);
-    box-shadow: inset -10px -10px 0px 0px rgba(2, 2, 2, 0.432);
-    color: black;
+    -webkit-box-shadow: inset -10px -5px 0px 0px #0202026e;
+    -moz-box-shadow: inset -10px -5px 0px 0px #0202026e;
+    box-shadow: inset -10px -10px 0px 0px #0202026e;
+    color: #000000;
     overflow-x: hidden;
     overflow-y: scroll;
 }
@@ -329,7 +333,7 @@ a:active {
 .team-member-letters {
     border-radius: 25em;
     background-color: #5b5f88;
-    color: white;
+    color: #ffffff;
     /* padding-top: 0.1em; */
     /* margin: 0 4px 4px 0; */
     width: 20px;
@@ -348,42 +352,35 @@ a:active {
     margin: 1px;
 }
 
-.audio-switch-container {
-
-}
-
 .card {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
+    box-shadow: 0 4px 8px 0 #00000033;
     width: 200px;
-    height: 100%;
+    height: 35px;
     padding: 6px 6px 2px 8px;
     border-radius: 7px;
     margin: 0.3em;
-    background-color: white;
-    color: black;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 9pt;
 }
 
 .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px 0 #00000033;
+    background-color: #a1a1a1;
 }
 
 .card-details {
     padding: 2px 16px;
 }
 
-/* .table-container {
-    display: table;
-  }
-  
-.table-container .table-row {
-height: 100%;
-display: table-row;
+.card-dropzone {
+    box-shadow: inset 0px 0px 10px 2px #00000033;
+    width: 200px;
+    height: 35px;
+    padding: 6px 6px 2px 8px;
+    border-radius: 7px;
+    margin: 0.3em;
+    background-color: transparent;/* #bdbdbd;*/
+    color: #000000;
 }
-
-.table-container .table-row .table-col {
-display: table-cell;
-float: none;
-vertical-align: top;
-} */
 

@@ -1,6 +1,8 @@
+'use-strict';
+
 app = angular.module('playground');
 
-app.controller('homeController',[ '$scope', '$uibModal', '$document', function ($scope, $uibModal, $document) {
+app.controller('homeController',[ '$scope', '$uibModal', '$document', '$log', function ($scope, $uibModal, $document, $log) {
 	$scope.modalUrl = 'board-creation-modal';
 	$scope.showModal = false;
 	$scope.createNewTeam = true;

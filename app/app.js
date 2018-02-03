@@ -1,4 +1,6 @@
-var app = angular.module('playground', ['ngRoute', 'ui.bootstrap', 'ngAnimate', 'ngTouch']);
+'use-strict';
+
+var app = angular.module('playground', ['ngRoute', 'ui.bootstrap', 'ngAnimate', 'ngTouch', 'dndLists']);
 
 app.config(function($routeProvider) {
 	var path = 'templates/';

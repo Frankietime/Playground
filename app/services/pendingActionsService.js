@@ -1,3 +1,5 @@
+'use-strict';
+
 var app = angular.module('playground');
 
 app.service('pendingActionsService', ['$filter', function ($filter) {
@@ -18,9 +20,10 @@ app.service('pendingActionsService', ['$filter', function ($filter) {
 
         if (board.state == 'initial' && board.initialBeat === undefined || board.initialBeat === null || !board.initialBeat) {
             boardPendingActions.push($filter('filter')(pendingActionsTypes, { actionName: 'setInitialBeat' }, true));
-        }
-
-        return boardPendingActions;
+            return boardPendingActions;
+        } else {
+            return null;
+        }        
     };
 
     return service;

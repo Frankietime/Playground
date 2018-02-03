@@ -1,3 +1,5 @@
+'use-strict';
+
 var app = angular.module('playground');
 
 app.service('boardService', ['$http', '$q', function ($http, $q){
