@@ -8,15 +8,14 @@
     <div class="board-view-container">
         <div class="row board-view-row">
             <div class="col-lg-9 col-md-9 board-column">
-                <div board board-data="board" id="board-view"></div>
+                <div board board-data="board" edit-card-html="editCardHtml" id="board-view" style="height:100%; overflow-x:scroll;"></div>
             </div>
             <div class="col-lg-3 col-md-3 menu-column" >
+                <!-- TODO: mover menu a directiva para reutilizar en popovers -->
                 <div class="playground-board-menu">
                     <div class="panel panel-default menu-panel">
                         <div class="panel-heading menu-heading">
-                            <div class>
-
-                            </div><h3>Menu</h3>
+                            <h3>Menu</h3>
                         </div>
                         <div class="panel-body">
                             <div class="team-menu">

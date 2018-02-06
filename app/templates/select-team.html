@@ -5,11 +5,10 @@
 </div>
 <div>
     <uib-accordion close-others="true" id="new-board-modal-accordion">
-        <div uib-accordion-group class="panel-default modal-teams" is-open="" ng-repeat="team in teams" id="{{'team_' + team.id}}">
+        <div uib-accordion-group class="panel-modal modal-teams" is-open="" ng-repeat="team in teams" id="{{'team_' + team.id}}">
             <uib-accordion-heading>
                 <div class="panel-heading" ng-click="selectTeam(this.team, $event)">
                     {{team.name}}
-                    <!-- <input class="pull-right team-radio-button" ng-model="team.selected" type="radio" id="{{'team_' + team.id + '_radio'}}"></input>																	 -->
                 </div>
             </uib-accordion-heading>
             
@@ -17,7 +16,5 @@
                 <li class="list-group-item" ng-repeat="member in team.members">{{member.name}}</li>
             </ul>
         </div>
-        <div>{{ teams[0].name + ' selected: ' + teams[0].selected}}</div>
-        <div>{{ teams[1].name + ' selected: ' + teams[1].selected}}</div>
     </uib-accordion>
 </div>

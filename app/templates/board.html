@@ -1,48 +1,67 @@
-<div style="margin-left:2%; margin-right:2%;">
-    <div class="container-fluid">
-        <div class="row playground-board-view">
-            <div ng-repeat="column in boardData.columns" class="col-sm-3 col-md-3 col-lg-3 list-column">
-                <div class="playground-list" ng-class="{ 'new-list' : column.newList, 'list' : !column.newList }">
-                    <div class="container-fluid" style="padding:0;">
-                        <h5 style="text-transform: capitalize;" class="pull-left">
+<div class="container playground-board-view">
+    <div class="row board-row">
+        <div ng-repeat="column in boardData.columns" class="col-sm-3 col-md-3 col-lg-3 list-column">
+            <div class="playground-list" ng-class="{ 'new-list' : column.newList, 'list' : !column.newList }">
+                <div class="container-fluid" style="padding:0;">                        
+                    <div ng-click="column.title.editing = true">
+                        <h5 ng-show="!column.title.editing" style="text-transform: capitalize;" class="list-title pull-left">
                             {{column.data}}
                         </h5>
-                        <span ng-show="column.newList" class="glyphicon glyphicon-plus pull-right"></span>
-                    </div>
-                    <hr ng-show="!column.newList">
-                    <div class="container-fluid" style="padding:0;">
-                        <ul dnd-list="column" class="list-group board-list">
-                            <li ng-repeat="item in column.items"
-                                dnd-draggable="item"
-                                dnd-moved="column.items.splice($index, 1)"
-                                dnd-effect-allowed="move"
-                                dnd-selected="models.selected = item"
-                                ng-class="{'selected': models.selected === item}">
-                                <div class="">
-                                    <div class="card">
-                                        <div class="card-title">
-                                            {{item.title}}
-                                        </div>
-                                        <div class="card-details">
-
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </li>
-                            <!-- <div class="card-dropzone">
-                                    <div>
-                                        {{list1[$index].title}}
-                                    </div>
-                            </div> -->
-                            <li class="card-dropzone"></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="new-card" ng-show="!column.newList" ng-click="pushItem(this.column)">
-                        <p>Add new card...</p>
+                        <input type="text" class="list-title-input" ng-keyup="$event.keyCode === 13 ? column.title.editing = false : ''" ng-blur="column.title.editing = false" ng-model="column.data" ng-show="column.title.editing" autofocus>
                     </div>
                 </div>
+                <hr ng-show="!column.newList">
+                <div class="container-fluid" style="padding:0;">
+                    <ul dnd-list="column.items" class="list-group board-list">
+                        <li ng-repeat="item in column.items"
+                            dnd-draggable="item"
+                            dnd-moved="column.items.splice($index, 1)"
+                            dnd-dragstart="dragStart()"
+                            dnd-moved="dragEnd()"
+                            dnd-effect-allowed="move"
+                            dnd-selected="models.selected = item"
+                            ng-class="{'selected': models.selected === item}">
+                            <div class="card">
+                                <div class="card-title row">
+                                    <div class="col-lg-10 col-md-10 col-sm-10" ng-click="item.editing = true">
+                                        <p ng-show="!item.editing">{{item.title}}</p>
+                                        <input type="text" ng-keyup="$event.keyCode === 13 ? item.editing = false : ''" ng-blur="item.editing = false" ng-model="item.title" ng-show="item.editing" autofocus>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-2" uib-dropdown>
+                                    <span class="glyphicon glyphicon glyphicon-pencil options-icon pull-right" uib-dropdown-toggle></span>
+                                        <ul class="list-group playground-action-menu" uib-dropdown-menu role="menu" auto-close="'outsideClick'" aria-labelledby="simple-dropdown">
+                                                <h5 style="text-align:center;">Card Actions</h5>
+                                            <hr style="margin:1em;">
+                                            <div>
+                                                <li ng-class="{'playground-select-button-active' : activeButton }"ng-repeat="member in boardData.team.members">
+                                                    <div class="playground-select-button" ng-click="activeButton === undefined || activeButton == false ? activeButton = true : activeButton = false">{{ member.name }}</div>
+                                                </li>
+                                            </div>
+                                        </ul>
+                                    </div>                                           
+                                </div>
+                                <div class="card-details">
+
+                                </div>
+                            </div>
+                        </li>
+                        <li  class="dndPlaceholder card-dropzone"></li>
+                    </ul>
+                </div>
+                
+                <div class="new-card" ng-show="!column.newList" ng-click="pushItem(this.column)">
+                    <p>Add new card...</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 col-md-3 col-lg-3 list-column">
+            <div class="playground-list new-list" ng-click="addNewList()">
+                <div class="container-fluid" style="padding:0;">
+                    <h5 style="text-transform: capitalize;" class="pull-left">
+                        Add new list...
+                    </h5>
+                    <span class="glyphicon glyphicon-plus pull-right"></span>
+                </div>                    
             </div>
         </div>
     </div>

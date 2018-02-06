@@ -8,10 +8,16 @@ app.directive('boardItems',[ function (){
 		scope: {
 			items: '=',
 			itemsPluralLabel: '@',
-			itemsSingularLabel: '@'
+			itemsSingularLabel: '@',
+			description: '@',
+			form: '=',
+			type: "@"
 		},
 		templateUrl: '../templates/board-items.html',
 		link: function (scope, element, attrs) {
+			if (!scope.type) {
+				scope.type = 'text';
+			}
 			var nextItemId = 0;
 			scope.addNewItem = function () {
 				scope.items.push({

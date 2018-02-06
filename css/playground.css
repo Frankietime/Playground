@@ -10,6 +10,72 @@ body {
     /* font-family: 'Comfortaa', cursive, 'Roboto', Sans-Serif; */
     height: 100%;
     font-family: 'Rubik', sans-serif;
+    overflow:hidden;
+}
+
+input {
+    width: 100%;
+    height: 2em;
+    padding: 0.5em;
+    border: none;
+    outline: none;
+    border-radius: 7px;
+}
+
+input .card {
+    margin: 0.5em;
+}
+
+.capitalize {
+    text-transform: capitalize
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #ffffff !important;
+    font-style: italic;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #ffffff !important;
+   opacity:  1;
+   font-style: italic;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #ffffff !important;
+   opacity:  1;
+   font-style: italic;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #ffffff !important;
+   font-style: italic;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+   color:    #ffffff !important;
+   font-style: italic;
+}
+
+::placeholder { /* Most modern browsers support this now. */
+   color:    #ffffff !important;
+   font-style: italic;
+}
+
+.playground-modal input {
+    background-color:  #6161a5;
+    border: none;
+    outline: none;
+    color: #ffffff;
+}
+
+.panel-modal {
+    background-color:  #6161a5;
+    color: #ffffff;
+}
+
+.panel-modal div {
+    color: #ffffff;
+}
+
+.panel-modal li {
+    background-color:  #6161a5;
 }
 
 body:-webkit-scrollbar{
@@ -64,6 +130,15 @@ h3 {
     margin: 0 !important;
 }
 
+.list-title {
+    word-wrap: break-word;
+    width: 200px;    
+}
+
+a {
+    color: #000000 !important;
+}
+
 a:link {
     text-decoration: none;
 }
@@ -80,20 +155,41 @@ a:active {
     text-decoration: none;
 }
 
+.items-row {
+    overflow-y: auto;
+    height: 500px;
+    overflow-x: hidden;
+}
+
+.playground-backdrop {
+    background-color: #000000;
+    opacity: 0.9 !important;
+}
+
 #title {
     margin:auto;
     text-align:center;
     margin-top:30px;
     width:100%;    
 }
+
+#new-board-modal-tabset {
+    height: 650px;
+}
+
+.modal-footer {
+    border: none !important;
+    width: 700px !important;
+    padding: 3%;
+}
+
+.tab-content .uib-tab {
+    background-color: #535388 !important;
+    color: #ffffff;
+}
+
 .new-board {
-    /* display: block;
-    position: fixed;
-    top: 50vh;
-    left: 39vw;   
-    width: 20%;
-    height: 5%; */
-    background-color: rgb(38, 38, 63);
+    background-color: #26263f;
     border-radius:15px;
     border: 0px;
     text-align: center;
@@ -107,7 +203,7 @@ a:active {
 }
 
 .playground-modal-button {
-    background-color: rgb(38, 38, 63);
+    background-color: #26263f;
     border-radius:15px;
     border: 0px;
     text-align: center;
@@ -178,9 +274,9 @@ a:active {
 
 
 .playground-modal {
-    background-color:  #26263f;
+    background-color:  #252579;
+    color: #ffffff;
 }
-
 
 #new-board:hover {
     background-color: #11111d;
@@ -234,6 +330,9 @@ a:active {
 
 .list-column {
     padding: 1em;
+    white-space: nowrap;
+    height: fit-content;
+    display:inline-block;
 }
 
 .list {
@@ -264,11 +363,20 @@ a:active {
     border-shadow: inset; 
 }
 
+.playground-board-view {
+    height: 100%;
+    width:100%;
+    /* padding-bottom: 100%; 
+    margin-bottom: -100%; */
+}
+
 .playground-board-menu {
     height: 100%;
     background-color: #ffffff;
     padding-bottom: 100%; 
     margin-bottom: -100%;
+    margin-left:2%; 
+    margin-right:2%;
     border-radius: 0px 0px 15px 0px;
     -webkit-box-shadow: inset -10px -5px 0px 0px #0202026e;
     -moz-box-shadow: inset -10px -5px 0px 0px #0202026e;
@@ -278,13 +386,11 @@ a:active {
     overflow-y: scroll;
 }
 
-.playground-board-view {
-    overflow-x: scroll;
-    overflow-y: hidden;
+.board-row {
     height: 100%;
-    width:100%;
-    padding-bottom: 100%; 
-    margin-bottom: -100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
 }
 
 .board-view-container
@@ -298,7 +404,6 @@ a:active {
 
 .board-view-row
 {
-    overflow: hidden;
     height: 100%;
 }
 
@@ -316,12 +421,29 @@ a:active {
     height: 100%;
 }
 
+.modal-column {
+    border-radius: 15px;
+    background-color: #535388;
+    padding: 1em;
+    height:100%;
+}
+
+.modal-heading {
+    text-align: center;
+    padding: 1em;
+    background-color: 11121b;
+}
+
 .menu-heading {
     text-align: center;
 }
 .board-list {
     list-style-type: none;
+    min-height: 30px;
+    height: 100%;
+    vertical-align: top;
 }
+
 .team-members-item {
     padding: 0.3em;
 }
@@ -355,13 +477,14 @@ a:active {
 .card {
     box-shadow: 0 4px 8px 0 #00000033;
     width: 200px;
-    height: 35px;
+    height: 100%;
     padding: 6px 6px 2px 8px;
     border-radius: 7px;
     margin: 0.3em;
     background-color: #ffffff;
     color: #000000;
     font-size: 9pt;
+    word-wrap: break-word;
 }
 
 .card:hover {
@@ -371,6 +494,7 @@ a:active {
 
 .card-details {
     padding: 2px 16px;
+    word-wrap: break-word
 }
 
 .card-dropzone {
@@ -384,3 +508,66 @@ a:active {
     color: #000000;
 }
 
+.options-icon {
+    color: #818181;
+    height: 30px;
+    width: 30px;
+    border-radius: 3px;
+    text-align: center;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.options-icon:hover {
+    color: #000000;
+    background-color: #818181;
+}
+
+.playground-action-menu {
+    background-color: #7373b9 !important;
+    width: 100%;
+    color: #ffffff;
+    border-radius: 7px;
+}
+
+.playground-select-button {
+    background-color: #7373b9;
+    color: #ffffff;
+    transition: 1s;
+    text-align: center;
+    margin-bottom: 0.5em;
+}
+
+.playground-select-button:hover {
+    background-color: #f12f8a;
+}
+
+.playground-select-button-active {
+    background-color: #f12f8a !important;
+}
+
+.list-title-input  {
+    color: #000000;
+}
+/* AngularJs Animations */
+
+.card-show {
+    -webkit-transition: 0.5s linear all; /* Chrome */
+	transition: 1.5s linear all;
+    opacity: 0;
+}
+
+.card-show .card-show-active {
+    opacity: 1.5;
+}
+
+
+.animate-enter {
+	-webkit-transition: 1s linear all; /* Chrome */
+	transition: 1s linear all;
+	opacity: 0;
+}
+ 
+.animate-enter.animate-enter-active {
+	opacity: 1;
+}

@@ -43,6 +43,10 @@ app.get('/css/:file',function(req,res){
   res.sendFile(path.join(directory + 'css/' + req.params.file));
 });
 
+app.get('/fonts/:file',function(req,res){
+  res.sendFile(path.join(directory + 'fonts/' + req.params.file));
+});
+
 app.listen(3000);
 
 console.log("Running at Port 3000");

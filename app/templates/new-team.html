@@ -1,17 +1,22 @@
 <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12">
-        <div class="form-group">
-            <input ng-model="newTeam.name" placeholder="Team's Name..." class="form-control" style="text-transform: capitalize" type="text" ng-required></input>
+        <div class="form-group" ng-class="{'has-error' : newBoardForm.newTeamName.$dirty && newBoardForm.newTeamName.$invalid}">
+            <input 
+                ng-model="newTeamView.name"
+                placeholder="Team's Name..."
+                name="newTeamName"
+                class="form-control"
+                style="text-transform: capitalize"
+                type="text"
+                ng-required="newTeamView.bool"></input>
+                <span ng-show="newBoardForm.newTeamName.$dirty && newBoardForm.newTeamName.$invalid">
+                    <span ng-show="newBoardForm.newTeamName.$error.required">Team's Name is required</span>
+                </span>
         </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-lg-12 col-md-12 col-sm-12">
-        <p>Invite team member's by entering their e-mails</p>
     </div>
 </div>
 <div class="col-lg-12 col-md-12 col-sm-12">
     <div class="col-lg-12 col-md-12 col-sm-12">
-        <div board-items items="invitationEmails" items-plural-label="{{invitationsPluralLabel}}" items-singular-label="{{invitationsSingularLabel}}"></div>				
+        <div board-items form="newBoardForm" type="email" items="invitationEmails" description="Invite team member's by entering their e-mails." items-plural-label="{{invitationsPluralLabel}}" items-singular-label="{{invitationsSingularLabel}}"></div>				
     </div>
 </div>

@@ -15,6 +15,7 @@ app.controller('homeController',[ '$scope', '$uibModal', '$document', '$log', fu
 			ariaDescribedBy: 'modal-body',
 			templateUrl: '../templates/board-creation-modal.html',
 			size: 'lg',
+			backdropClass: 'playground-backdrop',
 			controller: 'newBoardModalController',
 			appendTo: angular.element($document[0].querySelector('#newBoardModal'))
 		});

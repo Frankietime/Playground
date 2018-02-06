@@ -1,16 +1,40 @@
-<div class="row">
+<div class="row items-row">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <p>{{ description }}</p>
+        </div>
+    </div>
     <div class="col-lg-12 col-md-12 col-sm-12" ng-repeat="item in items">
         <div id="{{'item_' + item.id }}">
-            <div class="form-group">
-                <label>{{ itemsSingularLabel + ' ' + (items.indexOf(item) + 1) }}</label>							
-                <input placeholder="{{item.placeholder}}" ng-model="item.data" style="text-transform: capitalize" class="form-control" type="text" ng-required>                    
-                </input>
-                <button type="button" class="playground-modal-button" ng-show="!item.cantDelete" ng-click="deleteItem(item)">Delete</button>								
+            <div class="form-group" ng-class="{'has-error' : form['itemData_' + $index].$dirty && form['itemData_' + $index].$invalid}">
+                <label>{{ itemsSingularLabel + ' ' + (items.indexOf(item) + 1) }}</label>
+                <div class="row">
+                    <div class="col-lg-10 col-md-10 col-sm-10">
+                        <input 
+                            name="itemData_{{$index}}"
+                            placeholder="{{item.placeholder}}"
+                            ng-model="item.data"
+                            class="form-control"
+                            type="{{type}}"
+                            required>
+                        </input>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2">
+                        <button type="button" class="btn btn-primary pull-right" style="display:inline;" ng-show="!item.cantDelete" ng-click="deleteItem(item)">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </button>
+                    </div>
+                </div>                       
+                <span ng-show="form['itemData_' + $index].$dirty && form['itemData_' + $index].$invalid">
+                    <span ng-show="form['itemData_' + $index].$error.required">This is a required field</span>
+                    <span ng-show=" type === 'email' && form['itemData_' + $index].$error.email">Invalid e-mail address</span>
+                </span>
+                								
             </div>
         </div>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12">
-        <button class="playground-modal-button" ng-click="addNewItem()">
+        <button class="btn btn-primary" ng-click="addNewItem()">
             {{items.length == 0? 'Add New ' + itemsSingularLabel : 'Add More ' + itemsPluralLabel}}
         </button>
 </div>

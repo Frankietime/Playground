@@ -2,11 +2,13 @@
 
 var app = angular.module('playground');
 
-app.controller('boardController', ['$scope', 'boardService', 'pendingActionsService', '$uibModal', '$log', '$document',
-    function ($scope, boardService, pendingActionsService, $uibModal, $log, $document) {
+app.controller('boardController', ['$scope', 'boardService', 'pendingActionsService', '$uibModal', '$log', '$document', '$sce',
+    function ($scope, boardService, pendingActionsService, $uibModal, $log, $document, $sce) {
 
     $scope.board = boardService.getCurrentBoard();
-    $scope.board.columns.push({data: 'Add new list...', newList: true});
+    //$scope.board.columns.push({data: 'Add new list...', newList: true});
+
+    $scope.movingCard = false;
 
      var init = function () {
         var boardPendingActions = pendingActionsService.getBoardPendingActions($scope.board);
@@ -37,9 +39,10 @@ app.controller('boardController', ['$scope', 'boardService', 'pendingActionsServ
                 }
             });          
         }
-    }
+    };
 
     init();
+    
 
     $scope.playInitialBeat = function (selectedBeat) {
         //create a synth and connect it to the master output (your speakers)

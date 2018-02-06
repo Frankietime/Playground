@@ -2,7 +2,7 @@
 
 var app = angular.module('playground', ['ngRoute', 'ui.bootstrap', 'ngAnimate', 'ngTouch', 'dndLists']);
 
-app.config(function($routeProvider) {
+app.config(function($routeProvider, $uibTooltipProvider) {
 	var path = 'templates/';
 	$routeProvider.when('/home', {
 		templateUrl: path + 'home.html',
@@ -13,5 +13,9 @@ app.config(function($routeProvider) {
 	}).otherwise({
 		templateUrl: path + 'home.html',
 		controller: 'homeController'
+	});
+
+	$uibTooltipProvider.setTriggers({
+		'allwaysOpen': 'allwaysClose'
 	});
 });
