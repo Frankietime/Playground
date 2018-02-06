@@ -10,11 +10,8 @@ app.directive('board', [function () {
             boardData: '='
         },
         link: function (scope) {
-            scope.pushItem = function (column) {
-                column.items.push({title: '', editing: true});
-            }
             scope.addNewList = function () {
-                scope.boardData.columns.push({ items: [] });
+                scope.boardData.columns.push({ data: 'Column ' + (scope.boardData.columns.length + 1) , items: [], autofocus: true });
             }
         }
     };

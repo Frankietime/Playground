@@ -10,7 +10,7 @@
                 type="text"
                 ng-required="newTeamView.bool"></input>
                 <span ng-show="newBoardForm.newTeamName.$dirty && newBoardForm.newTeamName.$invalid">
-                    <span ng-show="newBoardForm.newTeamName.$error.required">Team's Name is required</span>
+                    <span ng-show="newBoardForm.newTeamName.$error.required" class="modal-error">Team's Name is required</span>
                 </span>
         </div>
     </div>

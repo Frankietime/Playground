@@ -26,7 +26,7 @@
                     </div>
                 </div>                       
                 <span ng-show="form['itemData_' + $index].$dirty && form['itemData_' + $index].$invalid">
-                    <span ng-show="form['itemData_' + $index].$error.required">This is a required field</span>
+                    <span ng-show="form['itemData_' + $index].$error.required" class="modal-error">This is a required field</span>
                     <span ng-show=" type === 'email' && form['itemData_' + $index].$error.email">Invalid e-mail address</span>
                 </span>
                 								
