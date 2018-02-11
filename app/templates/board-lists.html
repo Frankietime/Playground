@@ -22,7 +22,7 @@
                         <div class="card">
                             <div class="card-title row">
                                 <div class="col-lg-10 col-md-10 col-sm-10" ng-click="item.editing = true">
-                                    <p ng-show="!item.editing">{{item.title}}</p>
+                                    <p ng-show="!item.editing">{{ item.title }}</p>
                                     <input type="text" ng-keyup="$event.keyCode === 13 ? item.editing = false : ''" ng-blur="item.editing = false" ng-model="item.title" ng-show="item.editing" ng-attr-autofocus="item.autofocus">
                                 </div>
                                 <div class="col-lg-2 col-md-2 col-sm-2" uib-dropdown>
@@ -32,21 +32,29 @@
                                         <hr style="margin:1em;">
                                         <div>
                                             <li ng-class="{'playground-select-button-active' : activeButton }"ng-repeat="member in members">
-                                                <div class="playground-select-button" ng-click="activeButton === undefined || activeButton == false ? activeButton = true : activeButton = false">{{ member.name }}</div>
+                                                <div class="playground-select-button" ng-click="assignItemToMember(item, member)">{{ member.name }}</div>
+                                            </li>
+                                            <hr>
+                                            <li>
+                                                <div class="playground-delete-button" ng-click="list.items.splice($index, 1)">
+                                                    Delete
+                                                </div>
                                             </li>
                                         </div>
                                     </ul>
                                 </div>                                           
                             </div>
                             <div class="card-details">
-
+                                <div ng-repeat="member in members | filter : {$: item.id} : true : itemsAssigned">
+                                    <div>{{ member.name }}</div>
+                                </div>
                             </div>
                         </div>
                     </li>
                     <li  class="dndPlaceholder card-dropzone"></li>
                 </ul>
             </div>            
-            <div class="new-card" ng-show="!list.newList" ng-click="pushItem(this.list)">
+            <div class="new-card" ng-show="!list.newList" ng-click="addNewItem(this.list)">
                 <p>Add new card...</p>
             </div>
         </div>

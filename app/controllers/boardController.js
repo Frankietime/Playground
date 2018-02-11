@@ -6,7 +6,6 @@ app.controller('boardController', ['$scope', 'boardService', 'pendingActionsServ
     function ($scope, boardService, pendingActionsService, $uibModal, $log, $document, $sce) {
 
     $scope.board = boardService.getCurrentBoard();
-    //$scope.board.columns.push({data: 'Add new list...', newList: true});
 
     $scope.movingCard = false;
 
@@ -40,8 +39,8 @@ app.controller('boardController', ['$scope', 'boardService', 'pendingActionsServ
             });          
         }
     };
-
-    init();
+    // Enable when music subsystem is done
+    // init();
     
 
     $scope.playInitialBeat = function (selectedBeat) {

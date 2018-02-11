@@ -574,7 +574,7 @@ input[type="button"] {
     border-radius: 7px;
 }
 
-.playground-select-button {
+.playground-select-button, .playground-delete-button {
     background-color: #7373b9;
     color: #ffffff;
     transition: 1s;
@@ -588,6 +588,16 @@ input[type="button"] {
 
 .playground-select-button-active {
     background-color: #f12f8a !important;
+}
+
+.playground-delete-button:hover {
+    background-color: #eef12f;
+    color: #000000;
+    font-weight: bold;
+}
+
+.playground-delete-button-active {
+    background-color: #eef12f !important;
 }
 
 .list-title-input  {
