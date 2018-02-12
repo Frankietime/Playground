@@ -15,6 +15,10 @@ app.get('/js/:file',function(req,res){
   res.sendFile(path.join(directory + 'js/' + req.params.file));
 });
 
+app.get('/js/shim/:file',function(req,res){
+  res.sendFile(path.join(directory + 'js/shim/' + req.params.file));
+});
+
 app.get('/app/:file',function(req,res){
   res.sendFile(path.join(directory + 'app/' + req.params.file));
 });;
@@ -41,6 +45,10 @@ app.get('/templates/:file',function(req,res){
 
 app.get('/css/:file',function(req,res){
   res.sendFile(path.join(directory + 'css/' + req.params.file));
+});
+
+app.get('/css/shim/:file',function(req,res){
+  res.sendFile(path.join(directory + 'css/shim/' + req.params.file));
 });
 
 app.get('/fonts/:file',function(req,res){

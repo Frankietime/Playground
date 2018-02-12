@@ -10,7 +10,7 @@ body {
     /* font-family: 'Comfortaa', cursive, 'Roboto', Sans-Serif; */
     height: 100%;
     font-family: 'Rubik', sans-serif;
-    overflow:hidden;
+    overflow: hidden;
 }
 
 input {
@@ -78,6 +78,20 @@ input .card {
     background-color:  #6161a5;
 }
 
+/* .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li > a {
+    color: #000000 !important;
+    font-size: 13pt;
+    border: none;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a {
+    background-color: #e7a61a;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li > a:hover, .nav-tabs > li > a:hover {
+    background-color: #f3cf80;
+} */
+
 .board-row::-webkit-scrollbar {
     width:16px;
     background-color:#00000023;
@@ -131,7 +145,6 @@ h1 {
     color: #e7a61a;    
     text-shadow: 10px 3px #f12f8a;
     transition: 0.7s;
-    
 }
 
 h1:hover {
@@ -193,10 +206,13 @@ a:active {
 
 .modal-footer {
     border: none !important;
-    width: 700px !important;
     padding: 3%;
 }
+.modal-footer button {
+    width: 100%;
+    margin-bottom: 0.5em;
 
+}
 .tab-content .uib-tab {
     background-color: #535388 !important;
     color: #ffffff;
@@ -406,8 +422,6 @@ input[type="button"] {
 .playground-board-view {
     height: 100%;
     width:100%;
-    /* padding-bottom: 100%; 
-    margin-bottom: -100%; */
 }
 
 .playground-board-menu {
@@ -623,4 +637,52 @@ input[type="button"] {
  
 .animate-enter.animate-enter-active {
 	opacity: 1;
+}
+
+@media only screen and (max-width: 500px) {
+    h1 {
+        font-family: 'Erica One', cursive;
+        letter-spacing: 0.1em;
+        color: #e7a61a;    
+        text-shadow: 10px 3px #f12f8a;
+        transition: 0.7s;
+    }
+
+    .new-board {
+        background-color: #26263f;
+        border-radius:15px;
+        border: 0px;
+        text-align: center;
+        -webkit-box-shadow: 10px 5px 0px 0px #e7a61a;
+        -moz-box-shadow: 10px 5px 0px 0px #e7a61a;
+        box-shadow: 10px 5px 0px 0px #e7a61aa8;
+        color: #ff9900;
+        font-size: 15pt;
+        cursor: pointer;
+        font-family: 'Sigmar One', cursive;
+        transition: 0.5s;
+    }
+
+    #board {
+        background-color:#11121b;
+        height: 100%;
+        border-radius: 15px;
+        width: 100%;
+        border-color: #c21989;
+        margin-bottom: 10%;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+    }
+
+    .items-row {
+        overflow-y: auto;
+        height: 300px;
+        overflow-x: hidden;
+    }
+
+    #new-board-modal-tabset {
+        height: 400px;
+    }
+    
 }
