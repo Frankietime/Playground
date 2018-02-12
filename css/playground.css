@@ -371,7 +371,6 @@ input[type="button"] {
 
 .list-column {
     padding: 1em;
-    white-space: nowrap;
     height: fit-content;
     display:inline-block;
 }
@@ -431,7 +430,6 @@ input[type="button"] {
     height: 100%;
     overflow-x: auto;
     overflow-y: hidden;
-    white-space: nowrap;
     display: flex;
 }
 
@@ -594,6 +592,7 @@ input[type="button"] {
     background-color: #eef12f;
     color: #000000;
     font-weight: bold;
+    transition: 0.6s;
 }
 
 .playground-delete-button-active {
