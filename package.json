@@ -1,0 +1,36 @@
+{
+  "name": "playground",
+  "version": "1.0.0",
+  "description": "Interactive team integration & management board",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "node src/nodejs/index.js",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.org/Frank506/playground.git"
+  },
+  "keywords": [
+    "team",
+    "team",
+    "management",
+    "board",
+    "team",
+    "integration",
+    "audio",
+    "beat",
+    "generator"
+  ],
+  "author": "Franco Donadio",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/Frank506/playground#readme",
+  "devDependencies": {
+    "css-loader": "^0.28.9",
+    "inline-source-map": "^0.6.2",
+    "style-loader": "^0.20.2",
+    "webpack": "^3.11.0",
+    "webpack-dev-middleware": "^2.0.5"
+  }
+}
