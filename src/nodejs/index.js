@@ -6,7 +6,7 @@ const path    = require("path");
 
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
-const config = require('./webpack.config.json');
+const config = require('../../webpack.config.js');
 const compiler = webpack(config);
 
 // Tell express to use the webpack-dev-middleware and use the webpack.config.js
@@ -15,7 +15,7 @@ app.use(webpackDevMiddleware(compiler, {
   publicPath: config.output.publicPath
 }));
 
-var directory = 'C:/Users/franco/Source/Repos/playground/';
+var directory = 'C:/Users/franco/Source/Repos/playground/src/';
 
 app.get('/',function(req,res){
   res.sendFile(path.join(directory + 'index.html'));

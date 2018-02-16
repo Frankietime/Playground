@@ -28,6 +28,10 @@
   "homepage": "https://bitbucket.org/Frank506/playground#readme",
   "devDependencies": {
     "css-loader": "^0.28.9",
+    "file-loader": "^1.1.6",
+    "font-loader": "^0.1.2",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^2.30.1",
     "inline-source-map": "^0.6.2",
     "style-loader": "^0.20.2",
     "webpack": "^3.11.0",
