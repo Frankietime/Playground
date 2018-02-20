@@ -1,0 +1,67 @@
+@import './variables.scss';
+
+@media only screen and (max-width: 500px) {
+    
+    #logo {
+        background-image: url('./img/pg.jpg');
+        width:60px; 
+        height:60px;
+        margin: 0;
+        padding: 0;
+        display: inline;
+    }
+    .menu {
+        width: 60px;
+        height: 60px;
+        display: inline;
+    }
+    .pg-navigation-bar {
+        background-color: $a;
+    }
+
+    h1 {
+        font-family: 'Roboto';
+        letter-spacing: 0.1em;
+        color: #e7a61a;    
+        text-shadow: 10px 3px #f12f8a;
+        transition: 0.7s;
+    }
+
+    .new-board {
+        background-color: $c;
+        border-radius:15px;
+        border: 0px;
+        text-align: center;
+        -webkit-box-shadow: 10px 5px 0px 0px #e7a61a;
+        -moz-box-shadow: 10px 5px 0px 0px #e7a61a;
+        box-shadow: 10px 5px 0px 0px rgba(231, 166, 26, 0.659);
+        color: #ff9900;
+        font-size: 15pt;
+        cursor: pointer;
+        font-family: 'Sigmar One', cursive;
+        transition: 0.5s;
+    }
+
+    #board {
+        background-color:#11121b;
+        height: 100%;
+        border-radius: 15px;
+        width: 100%;
+        border-color: #c21989;
+        margin-bottom: 10%;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+    }
+
+    .items-row {
+        overflow-y: auto;
+        height: 300px;
+        overflow-x: hidden;
+    }
+
+    #new-board-modal-tabset {
+        height: 400px;
+    }
+    
+}

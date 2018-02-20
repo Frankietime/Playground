@@ -1,10 +1,10 @@
 // angular dependencies
 import angular from './js/angular.js';
-import ngRoute from './js/angular-route.min.js';
-import uiBootstrap from './js/ui-bootstrap-tpls-2.5.0.min.js';
-import ngAnimate from './js/angular-animate.js';
-import ngTouch from './js/angular-touch.js';
-import dndLists from './js/angular-drag-and-drop-lists.js';
+const ngRoute = require('angular-route');
+const uiBootstrap = require('angular-ui-bootstrap');
+const ngAnimate = require('angular-animate');
+const ngTouch = require('angular-touch');
+const dndLists = require('angular-drag-and-drop-lists');
 
 // app
 import app from './app/app.js';
@@ -33,4 +33,6 @@ import './app/directives/board-lists.js';
 
 // css
 import './css/bootstrap.css';
-import './css/playground.css';
+import './variables.scss';
+import './styles.scss';
+import './mobile.scss';

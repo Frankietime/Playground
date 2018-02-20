@@ -12,7 +12,11 @@ const compiler = webpack(config);
 // Tell express to use the webpack-dev-middleware and use the webpack.config.js
 // configuration file as a base.
 app.use(webpackDevMiddleware(compiler, {
-  publicPath: config.output.publicPath
+  publicPath: config.output.publicPath,
+  watchOptions: {
+    aggregateTimeout: 300,
+    poll: 1000
+  }
 }));
 
 var directory = 'C:/Users/franco/Source/Repos/playground/src/';
@@ -64,6 +68,10 @@ app.get('/css/shim/:file',function(req,res){
 
 app.get('/fonts/:file',function(req,res){
   res.sendFile(path.join(directory + 'fonts/' + req.params.file));
+});
+
+app.get('/img/:file',function(req,res){
+  res.sendFile(path.join(directory + 'img/' + req.params.file));
 });
 
 app.listen(3000);
